@@ -1,0 +1,28 @@
+---
+import type { LocalizedString } from '../data/portfolio';
+
+type Props = {
+  value: LocalizedString;
+  html?: boolean;
+  class?: string;
+};
+
+const { value, html = false } = Astro.props;
+const className = Astro.props.class;
+const translations =
+  typeof value === 'string' ? { en: value, es: value } : value;
+---
+
+{
+  html ? (
+    <>
+      <div class:list={['localized-html', className]} data-lang="en" set:html={translations.en} />
+      <div class:list={['localized-html', className]} data-lang="es" set:html={translations.es} />
+    </>
+  ) : (
+    <>
+      <span data-lang="en">{translations.en}</span>
+      <span data-lang="es">{translations.es}</span>
+    </>
+  )
+}

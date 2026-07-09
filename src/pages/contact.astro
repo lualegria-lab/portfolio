@@ -1,0 +1,34 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Localized from '../components/Localized.astro';
+import { profile, ui } from '../data/portfolio';
+---
+
+<BaseLayout active="contact" title="Lucía Alegria - Contact">
+  <section class="contact-shell">
+    <div class="contact-copy prose">
+      <p class="meta"><Localized value={ui.contactEyebrow} /></p>
+      <h1><Localized value={ui.contactTitle} /></h1>
+      <p><Localized value={ui.contactBody} /></p>
+      <a class="button" href={`mailto:${profile.email}`}>{profile.email}</a>
+    </div>
+    <figure>
+      <img src="/assets/contact-photo.jpg" alt="Lucía Alegria" />
+    </figure>
+    <form class="contact-form" action={`mailto:${profile.email}`} method="post" enctype="text/plain">
+      <label>
+        <Localized value={ui.labels.email} />
+        <input name="email" type="email" autocomplete="email" />
+      </label>
+      <label>
+        <Localized value={ui.labels.name} />
+        <input name="name" type="text" autocomplete="name" />
+      </label>
+      <label>
+        <Localized value={ui.labels.message} />
+        <textarea name="message" rows="6"></textarea>
+      </label>
+      <button type="submit"><Localized value={ui.labels.send} /></button>
+    </form>
+  </section>
+</BaseLayout>

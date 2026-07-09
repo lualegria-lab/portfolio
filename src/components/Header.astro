@@ -1,0 +1,51 @@
+---
+import { navItems } from '../data/portfolio';
+import Localized from './Localized.astro';
+
+type Props = {
+  active?: string;
+};
+
+const { active = '' } = Astro.props;
+---
+
+<header class="site-header">
+  <a class="brand" href="/" aria-label="Lucía Alegria home">LA</a>
+  <nav aria-label="Primary navigation">
+    {navItems.map((item) => (
+      <a href={item.href} class:list={[active === item.key && 'active']}>
+        <Localized value={item.label} />
+      </a>
+    ))}
+  </nav>
+  <div class="language-switch" aria-label="Language selector">
+    <button type="button" data-lang-toggle="es">ES</button>
+    <span>/</span>
+    <button type="button" data-lang-toggle="en">EN</button>
+  </div>
+</header>
+
+<script>
+  const setLanguage = (lang: 'en' | 'es') => {
+    document.documentElement.dataset.lang = lang;
+    document.documentElement.lang = lang;
+    localStorage.setItem('portfolio-lang', lang);
+    document.querySelectorAll<HTMLButtonElement>('[data-lang-toggle]').forEach((button) => {
+      button.ariaPressed = String(button.dataset.langToggle === lang);
+    });
+  };
+
+  const initialLang =
+    document.documentElement.dataset.lang === 'es' || document.documentElement.dataset.lang === 'en'
+      ? document.documentElement.dataset.lang
+      : 'en';
+
+  setLanguage(initialLang);
+
+  document.querySelectorAll<HTMLButtonElement>('[data-lang-toggle]').forEach((button) => {
+    button.addEventListener('click', () => {
+      const lang = button.dataset.langToggle === 'es' ? 'es' : 'en';
+      setLanguage(lang);
+    });
+  });
+</script>

@@ -1,0 +1,92 @@
+---
+import type { ProjectSection } from '../data/portfolio';
+import Localized from './Localized.astro';
+
+type Props = {
+  section: ProjectSection;
+};
+
+const { section } = Astro.props;
+---
+
+{
+  section.type === 'text' && (
+    <section class="content-section prose">
+      {section.heading && <h2><Localized value={section.heading} /></h2>}
+      <Localized value={section.body} html />
+    </section>
+  )
+}
+
+{
+  section.type === 'media' && (
+    <section class:list={['content-section', 'media-section', section.wide && 'wide']}>
+      <div class="prose">
+        {section.heading && <h2><Localized value={section.heading} /></h2>}
+        {section.body && <Localized value={section.body} html />}
+      </div>
+      <figure>
+        <img src={section.image} alt={section.alt} loading="lazy" />
+        {section.caption && <figcaption><Localized value={section.caption} /></figcaption>}
+      </figure>
+    </section>
+  )
+}
+
+{
+  section.type === 'split' && (
+    <section class:list={['content-section', 'split-section', section.reverse && 'reverse']}>
+      <div class="prose">
+        <h2><Localized value={section.heading} /></h2>
+        <Localized value={section.body} html />
+      </div>
+      <figure>
+        <img src={section.image} alt={section.alt} loading="lazy" />
+        {section.caption && <figcaption><Localized value={section.caption} /></figcaption>}
+      </figure>
+    </section>
+  )
+}
+
+{
+  section.type === 'embed' && (
+    <section class="content-section media-section wide">
+      <div class="prose">
+        {section.heading && <h2><Localized value={section.heading} /></h2>}
+        {section.body && <Localized value={section.body} html />}
+      </div>
+      <div class="video-frame">
+        <iframe
+          src={section.url}
+          title={section.title}
+          loading="lazy"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        />
+      </div>
+    </section>
+  )
+}
+
+{
+  section.type === 'screens' && (
+    <section class="content-section screens-section">
+      <div class="prose">
+        {section.heading && <h2><Localized value={section.heading} /></h2>}
+        {section.body && <Localized value={section.body} html />}
+      </div>
+      <div class="screens-grid">
+        {section.images.map((image) => (
+          <figure>
+            <span
+              class="screen-image"
+              role="img"
+              aria-label={image.alt}
+              style={`background-image: url('${image.src}')`}
+            />
+          </figure>
+        ))}
+      </div>
+    </section>
+  )
+}

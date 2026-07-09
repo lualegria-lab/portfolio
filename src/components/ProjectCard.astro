@@ -1,0 +1,24 @@
+---
+import type { Project } from '../data/portfolio';
+import Localized from './Localized.astro';
+
+type Props = {
+  project: Project;
+};
+
+const { project } = Astro.props;
+const isStack = project.thumbnail.length > 1;
+---
+
+<a class="project-card" href={`/work/${project.slug}/`}>
+  <div class:list={['project-thumb', isStack && 'stacked', project.thumbnailMode]}>
+    {project.thumbnail.map((image, index) => (
+      <span class="thumb-image" aria-hidden="true" style={`--i: ${index}; background-image: url('${image}')`} />
+    ))}
+  </div>
+  <div class="project-copy">
+    <p class="meta"><Localized value={project.category} /></p>
+    <h2><Localized value={project.title} /></h2>
+    <p><Localized value={project.summary} /></p>
+  </div>
+</a>

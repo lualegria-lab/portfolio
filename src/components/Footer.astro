@@ -1,0 +1,15 @@
+---
+import { navItems, profile } from '../data/portfolio';
+import Localized from './Localized.astro';
+import { ui } from '../data/portfolio';
+---
+
+<footer class="site-footer">
+  <div>
+    <p><Localized value={ui.footerCta} /></p>
+    <a href={`mailto:${profile.email}`}>{profile.email}</a>
+  </div>
+  <nav aria-label="Footer navigation">
+    {navItems.map((item) => <a href={item.href}><Localized value={item.label} /></a>)}
+  </nav>
+</footer>

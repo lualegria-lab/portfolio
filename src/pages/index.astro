@@ -1,0 +1,22 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import Localized from '../components/Localized.astro';
+import { profile, projects, ui } from '../data/portfolio';
+---
+
+<BaseLayout active="home">
+  <section class="hero">
+    <div class="hero-media">
+      <img src={profile.heroImage} alt="Lucía Alegria portrait" />
+    </div>
+    <div class="hero-copy">
+      <p><Localized value={profile.introEyebrow} /></p>
+      <h1><Localized value={profile.intro} /></h1>
+    </div>
+  </section>
+
+  <section class="project-grid" aria-label={typeof ui.selectedWork === 'string' ? ui.selectedWork : ui.selectedWork.en}>
+    {projects.map((project) => <ProjectCard project={project} />)}
+  </section>
+</BaseLayout>

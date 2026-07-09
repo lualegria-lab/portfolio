@@ -1,0 +1,22 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Localized from '../components/Localized.astro';
+import { aboutSections, ui } from '../data/portfolio';
+---
+
+<BaseLayout active="about" title="Lucía Alegria - About">
+  <section class="page-shell">
+    <h1><Localized value={ui.aboutTitle} /></h1>
+    <div class="about-stack">
+      {aboutSections.map((section, index) => (
+        <article class:list={['about-section', index % 2 === 1 && 'reverse']}>
+          <figure>
+            <img src={section.image} alt={section.alt} loading="lazy" />
+            {section.caption && <figcaption><Localized value={section.caption} /></figcaption>}
+          </figure>
+          <Localized value={section.html} html class="prose" />
+        </article>
+      ))}
+    </div>
+  </section>
+</BaseLayout>
