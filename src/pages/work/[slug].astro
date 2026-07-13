@@ -12,6 +12,7 @@ export function getStaticPaths() {
 }
 
 const { project } = Astro.props;
+const projectHeroAlt = project.heroAlt ?? getText(project.title);
 ---
 
 <BaseLayout title={`Lucía Alegria - ${getText(project.title)}`}>
@@ -27,7 +28,16 @@ const { project } = Astro.props;
       </div>
       {project.heroImage && (
         <figure>
-          <img src={project.heroImage} alt={project.heroAlt ?? getText(project.title)} />
+          <button
+            class="image-expand"
+            type="button"
+            data-lightbox-trigger
+            data-lightbox-src={project.heroImage}
+            data-lightbox-alt={projectHeroAlt}
+            aria-label={`Open ${projectHeroAlt} full screen`}
+          >
+            <img src={project.heroImage} alt={projectHeroAlt} />
+          </button>
         </figure>
       )}
     </header>

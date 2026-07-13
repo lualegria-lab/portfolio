@@ -40,5 +40,53 @@ const {
       <slot />
     </main>
     <Footer />
+    <dialog class="image-lightbox" data-image-lightbox>
+      <button class="image-lightbox-close" type="button" data-lightbox-close aria-label="Close image">x</button>
+      <img data-lightbox-image alt="" />
+    </dialog>
+    <script>
+      const lightbox = document.querySelector<HTMLDialogElement>('[data-image-lightbox]');
+      const lightboxImage = lightbox?.querySelector<HTMLImageElement>('[data-lightbox-image]');
+
+      document.addEventListener('click', (event) => {
+        const target = event.target as HTMLElement | null;
+        const clickedImage = target?.closest<HTMLImageElement>('img');
+        const trigger = target?.closest<HTMLButtonElement>('[data-lightbox-trigger]');
+
+        if (!lightbox || !lightboxImage || lightbox.open) {
+          return;
+        }
+
+        if (trigger) {
+          lightboxImage.src = trigger.dataset.lightboxSrc ?? '';
+          lightboxImage.alt = trigger.dataset.lightboxAlt ?? '';
+        } else if (clickedImage && !clickedImage.closest('a, button')) {
+          lightboxImage.src = clickedImage.currentSrc || clickedImage.src;
+          lightboxImage.alt = clickedImage.alt;
+        } else {
+          return;
+        }
+
+        lightbox.showModal();
+      });
+
+      document.addEventListener('click', (event) => {
+        if (!lightbox?.open) {
+          return;
+        }
+
+        const target = event.target as HTMLElement;
+
+        if (target === lightbox || target.closest('[data-lightbox-close]')) {
+          lightbox.close();
+        }
+      });
+
+      lightbox?.addEventListener('close', () => {
+        if (lightboxImage) {
+          lightboxImage.removeAttribute('src');
+        }
+      });
+    </script>
   </body>
 </html>

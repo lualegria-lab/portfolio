@@ -21,12 +21,23 @@ const { section } = Astro.props;
 {
   section.type === 'media' && (
     <section class:list={['content-section', 'media-section', section.wide && 'wide']}>
-      <div class="prose">
-        {section.heading && <h2><Localized value={section.heading} /></h2>}
-        {section.body && <Localized value={section.body} html />}
-      </div>
+      {(section.heading || section.body) && (
+        <div class="prose">
+          {section.heading && <h2><Localized value={section.heading} /></h2>}
+          {section.body && <Localized value={section.body} html />}
+        </div>
+      )}
       <figure>
-        <img src={section.image} alt={section.alt} loading="lazy" />
+        <button
+          class="image-expand"
+          type="button"
+          data-lightbox-trigger
+          data-lightbox-src={section.image}
+          data-lightbox-alt={section.alt}
+          aria-label={`Open ${section.alt} full screen`}
+        >
+          <img src={section.image} alt={section.alt} loading="lazy" />
+        </button>
         {section.caption && <figcaption><Localized value={section.caption} /></figcaption>}
       </figure>
     </section>
@@ -41,7 +52,16 @@ const { section } = Astro.props;
         <Localized value={section.body} html />
       </div>
       <figure>
-        <img src={section.image} alt={section.alt} loading="lazy" />
+        <button
+          class="image-expand"
+          type="button"
+          data-lightbox-trigger
+          data-lightbox-src={section.image}
+          data-lightbox-alt={section.alt}
+          aria-label={`Open ${section.alt} full screen`}
+        >
+          <img src={section.image} alt={section.alt} loading="lazy" />
+        </button>
         {section.caption && <figcaption><Localized value={section.caption} /></figcaption>}
       </figure>
     </section>
@@ -71,22 +91,135 @@ const { section } = Astro.props;
 {
   section.type === 'screens' && (
     <section class="content-section screens-section">
-      <div class="prose">
-        {section.heading && <h2><Localized value={section.heading} /></h2>}
-        {section.body && <Localized value={section.body} html />}
-      </div>
+      {(section.heading || section.body) && (
+        <div class="prose">
+          {section.heading && <h2><Localized value={section.heading} /></h2>}
+          {section.body && <Localized value={section.body} html />}
+        </div>
+      )}
       <div class="screens-grid">
         {section.images.map((image) => (
           <figure>
-            <span
+            <button
               class="screen-image"
-              role="img"
+              type="button"
+              data-lightbox-trigger
+              data-lightbox-src={image.src}
+              data-lightbox-alt={image.alt}
               aria-label={image.alt}
               style={`background-image: url('${image.src}')`}
-            />
+            ></button>
           </figure>
         ))}
       </div>
     </section>
   )
 }
+
+{
+  section.type === 'slider' && (
+    <section class="content-section slider-section">
+      {(section.heading || section.body) && (
+        <div class="prose">
+          {section.heading && <h2><Localized value={section.heading} /></h2>}
+          {section.body && <Localized value={section.body} html />}
+        </div>
+      )}
+      <div class="image-slider" data-image-slider>
+        <button class="slider-control prev" type="button" data-slider-prev aria-label="Lámina anterior">
+          &lt;
+        </button>
+        <div class="slider-track" data-slider-track>
+          {section.images.map((image) => (
+            <figure class="slider-slide" data-slider-slide>
+              <button
+                class="image-expand"
+                type="button"
+                data-lightbox-trigger
+                data-lightbox-src={image.src}
+                data-lightbox-alt={image.alt}
+                aria-label={`Open ${image.alt} full screen`}
+              >
+                <img src={image.src} alt={image.alt} loading="lazy" />
+              </button>
+              {image.caption && <figcaption><Localized value={image.caption} /></figcaption>}
+            </figure>
+          ))}
+        </div>
+        <button class="slider-control next" type="button" data-slider-next aria-label="Lámina siguiente">
+          &gt;
+        </button>
+        <div class="slider-dots" aria-label="Láminas">
+          {section.images.map((_, index) => (
+            <button
+              type="button"
+              data-slider-dot
+              aria-label={`Ir a la lámina ${index + 1}`}
+              aria-current={index === 0 ? 'true' : 'false'}
+            ></button>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-image-slider]').forEach((slider) => {
+    const track = slider.querySelector<HTMLElement>('[data-slider-track]');
+    const slides = Array.from(slider.querySelectorAll<HTMLElement>('[data-slider-slide]'));
+    const dots = Array.from(slider.querySelectorAll<HTMLButtonElement>('[data-slider-dot]'));
+    const prev = slider.querySelector<HTMLButtonElement>('[data-slider-prev]');
+    const next = slider.querySelector<HTMLButtonElement>('[data-slider-next]');
+
+    if (!track || slides.length === 0) {
+      return;
+    }
+
+    let activeIndex = 0;
+    let frame = 0;
+
+    const setActive = (index: number) => {
+      activeIndex = Math.max(0, Math.min(index, slides.length - 1));
+      dots.forEach((dot, dotIndex) => {
+        dot.ariaCurrent = dotIndex === activeIndex ? 'true' : 'false';
+      });
+    };
+
+    const goTo = (index: number) => {
+      const nextIndex = index < 0 ? slides.length - 1 : index >= slides.length ? 0 : index;
+      const slide = slides[nextIndex];
+
+      track.scrollTo({
+        left: slide.offsetLeft,
+        behavior: 'smooth'
+      });
+      setActive(nextIndex);
+    };
+
+    const syncActiveSlide = () => {
+      const nearest = slides.reduce((current, slide, index) => {
+        const currentDistance = Math.abs(slides[current].offsetLeft - track.scrollLeft);
+        const nextDistance = Math.abs(slide.offsetLeft - track.scrollLeft);
+        return nextDistance < currentDistance ? index : current;
+      }, 0);
+
+      setActive(nearest);
+    };
+
+    prev?.addEventListener('click', () => goTo(activeIndex - 1));
+    next?.addEventListener('click', () => goTo(activeIndex + 1));
+    dots.forEach((dot, index) => dot.addEventListener('click', () => goTo(index)));
+
+    track.addEventListener(
+      'scroll',
+      () => {
+        cancelAnimationFrame(frame);
+        frame = requestAnimationFrame(syncActiveSlide);
+      },
+      { passive: true }
+    );
+
+    setActive(0);
+  });
+</script>
