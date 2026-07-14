@@ -97,7 +97,7 @@ const { section } = Astro.props;
           {section.body && <Localized value={section.body} html />}
         </div>
       )}
-      <div class="screens-grid">
+      <div class:list={['screens-grid', section.images.length === 2 && 'two-up']}>
         {section.images.map((image) => (
           <figure>
             <button

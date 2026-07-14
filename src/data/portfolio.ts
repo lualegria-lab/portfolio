@@ -164,7 +164,7 @@ export const projects: Project[] = [
       { en: 'Mobile app', es: 'App mobile' },
       { en: 'Culture', es: 'Cultura' }
     ],
-    thumbnail: ['/assets/cover-mockup.png'],
+    thumbnail: ['/assets/buscarte-covermockup.png'],
     heroImage: '/assets/cover-mockup1.png',
     heroAlt: 'Buscarte app cover mockup',
     sections: [
@@ -208,31 +208,43 @@ export const projects: Project[] = [
         },
         image: '/assets/project-buscarte-research.webp',
         alt: 'Market research board for Buscarte',
-        caption: 'Organizamos la información relevada en Figjam para poder trabajar colaborativamente.'
+        caption: {
+          en: 'We organized the research findings in FigJam so we could work collaboratively.',
+          es: 'Organizamos la información relevada en Figjam para poder trabajar colaborativamente.'
+        }
       },
       {
         type: 'split',
-        heading: 'User research',
+        heading: {
+          en: 'User research',
+          es: 'Investigación de usuarios'
+        },
         body: {
-          en: '<p>Para validar si esta problemática respondía a una necesidad real, realizamos una encuesta digital con una muestra total de <strong>74 personas</strong>.</p><p>Los resultados confirmaron nuestra hipótesis inicial: existe una gran oferta de eventos culturales en la ciudad, pero la información suele estar dispersa, poco clara y no siempre resulta accesible para los usuarios.</p><p>Un insight clave fue que los usuarios recurren a múltiples plataformas para informarse y planificar salidas culturales.</p><h3>Hallazgos clave</h3><ul><li>Necesidad de una mejor difusión visual</li><li>Baja visibilidad de eventos independientes</li><li>Falta de una plataforma unificada</li></ul>',
+          en: '<p>To validate whether this problem responded to a real need, we ran a digital survey with a total sample of <strong>74 people</strong>.</p><p>The results confirmed our initial hypothesis: the city has a broad cultural offer, but the information is often scattered, unclear, and not always accessible to users.</p><p>A key insight was that users rely on multiple platforms to find information and plan cultural outings.</p><h3>Key findings</h3><ul><li>Need for better visual communication</li><li>Low visibility of independent events</li><li>Lack of a unified platform</li></ul>',
           es: '<p>Para validar si esta problemática respondía a una necesidad real, realizamos una encuesta digital con una muestra total de <strong>74 personas</strong>.</p><p>Los resultados confirmaron nuestra hipótesis inicial: existe una gran oferta de eventos culturales en la ciudad, pero la información suele estar dispersa, poco clara y no siempre resulta accesible para los usuarios.</p><p>Un insight clave fue que los usuarios recurren a múltiples plataformas para informarse y planificar salidas culturales.</p><h3>Hallazgos clave</h3><ul><li>Necesidad de una mejor difusión visual</li><li>Baja visibilidad de eventos independientes</li><li>Falta de una plataforma unificada</li></ul>'
         },
         image: '/assets/project-buscarte-survey.webp',
         alt: 'Survey charts for Buscarte',
-        caption: 'Edades y rangos horarios de consumo',
+        caption: {
+          en: 'Age groups and cultural consumption time ranges',
+          es: 'Edades y rangos horarios de consumo'
+        },
         reverse: true
       },
       {
         type: 'media',
         image: '/assets/usersurvey.png',
         alt: 'Survey observations from Buscarte users',
-        caption: 'Observaciones principales de los encuestados',
+        caption: {
+          en: 'Main observations from survey respondents',
+          es: 'Observaciones principales de los encuestados'
+        },
         wide: true
       },
       {
         type: 'media',
         body: {
-          en: '<div class="solution-columns"><div><h2>Planteo de solución</h2><p>A partir de los resultados de la investigación y entrevistas en profundidad, identificamos los principales puntos de dolor y comenzamos a idear una solución alineada tanto a las necesidades de los usuarios como de los organizadores.</p><p>Diseñamos mapas de empatía y user personas para comprender mejor motivaciones, comportamientos y expectativas, y así guiar las decisiones de diseño y funcionalidad.</p></div><div><h2>Propuesta de valor</h2><h4>Para el usuario</h4><ul><li>Unificación de la búsqueda de eventos</li><li>Contenidos fáciles de compartir</li><li>Filtros personalizados según intereses</li></ul><h4>Para el organizador</h4><ul><li>Publicación de eventos de forma simple</li><li>Visibilidad gratuita</li><li>Posibilidad de destacar información relevante del evento</li></ul></div></div>',
+          en: '<div class="solution-columns"><div><h2>Solution approach</h2><p>Based on the research results and in-depth interviews, we identified the main pain points and began to ideate a solution aligned with the needs of both users and organizers.</p><p>We designed empathy maps and user personas to better understand motivations, behaviors, and expectations, and to guide design and functionality decisions.</p></div><div><h2>Value proposition</h2><h4>For users</h4><ul><li>Unified event search</li><li>Content that is easy to share</li><li>Personalized filters based on interests</li></ul><h4>For organizers</h4><ul><li>Simple event publishing</li><li>Free visibility</li><li>Ability to highlight relevant event information</li></ul></div></div>',
           es: '<div class="solution-columns"><div><h2>Planteo de solución</h2><p>A partir de los resultados de la investigación y entrevistas en profundidad, identificamos los principales puntos de dolor y comenzamos a idear una solución alineada tanto a las necesidades de los usuarios como de los organizadores.</p><p>Diseñamos mapas de empatía y user personas para comprender mejor motivaciones, comportamientos y expectativas, y así guiar las decisiones de diseño y funcionalidad.</p></div><div><h2>Propuesta de valor</h2><h4>Para el usuario</h4><ul><li>Unificación de la búsqueda de eventos</li><li>Contenidos fáciles de compartir</li><li>Filtros personalizados según intereses</li></ul><h4>Para el organizador</h4><ul><li>Publicación de eventos de forma simple</li><li>Visibilidad gratuita</li><li>Posibilidad de destacar información relevante del evento</li></ul></div></div>'
         },
         image: '/assets/project-buscarte-solution.webp',
@@ -241,8 +253,14 @@ export const projects: Project[] = [
       },
       {
         type: 'text',
-        heading: 'Del insight a la oportunidad de diseño',
-        body: '<p>Con la propuesta de valor definida, profundizamos en la comprensión de las personas usuarias para identificar oportunidades, limitaciones y puntos de mejora de la aplicación.</p><p>A través de herramientas de síntesis como mapas de afinidad, mapas de empatía y un análisis FODA, organizamos los hallazgos de la investigación y analizamos el contexto del producto desde una perspectiva tanto centrada en el usuario como estratégica.</p><p>Este proceso nos permitió detectar necesidades reales, anticipar posibles fricciones y orientar las decisiones de diseño hacia una solución relevante y viable.</p>'
+        heading: {
+          en: 'From insight to design opportunity',
+          es: 'Del insight a la oportunidad de diseño'
+        },
+        body: {
+          en: '<p>With the value proposition defined, we deepened our understanding of users to identify opportunities, limitations, and areas for improvement in the application.</p><p>Through synthesis tools such as affinity maps, empathy maps, and a SWOT analysis, we organized the research findings and analyzed the product context from both a user-centered and strategic perspective.</p><p>This process allowed us to detect real needs, anticipate possible friction points, and guide design decisions toward a relevant and viable solution.</p>',
+          es: '<p>Con la propuesta de valor definida, profundizamos en la comprensión de las personas usuarias para identificar oportunidades, limitaciones y puntos de mejora de la aplicación.</p><p>A través de herramientas de síntesis como mapas de afinidad, mapas de empatía y un análisis FODA, organizamos los hallazgos de la investigación y analizamos el contexto del producto desde una perspectiva tanto centrada en el usuario como estratégica.</p><p>Este proceso nos permitió detectar necesidades reales, anticipar posibles fricciones y orientar las decisiones de diseño hacia una solución relevante y viable.</p>'
+        }
       },
       {
         type: 'slider',
@@ -250,22 +268,34 @@ export const projects: Project[] = [
           {
             src: '/assets/empathymap.png',
             alt: 'Mapa de empatía de usuarios de Buscarte',
-            caption: 'Mapa de empatía'
+            caption: {
+              en: 'Empathy map',
+              es: 'Mapa de empatía'
+            }
           },
           {
             src: '/assets/mapadeafinidad.jpg',
             alt: 'Mapa de afinidad de la investigación de Buscarte',
-            caption: 'Mapa de afinidad'
+            caption: {
+              en: 'Affinity map',
+              es: 'Mapa de afinidad'
+            }
           },
           {
             src: '/assets/analisisdafo.png',
             alt: 'Análisis FODA de Buscarte',
-            caption: 'Análisis FODA'
+            caption: {
+              en: 'SWOT analysis',
+              es: 'Análisis FODA'
+            }
           },
           {
             src: '/assets/userflow.png',
             alt: 'Mapa de navegación de Buscarte',
-            caption: 'Mapa de navegación'
+            caption: {
+              en: 'Navigation map',
+              es: 'Mapa de navegación'
+            }
           }
         ]
       },
@@ -275,40 +305,99 @@ export const projects: Project[] = [
           {
             src: '/assets/buscarte-userpersona1.webp',
             alt: 'User persona Mateo, usuario que busca eventos culturales',
-            caption: 'User persona de usuario que busca evento'
+            caption: {
+              en: 'User persona for someone looking for an event',
+              es: 'User persona de usuario que busca evento'
+            }
           },
           {
             src: '/assets/buscarte-userpersona2.webp',
             alt: 'User persona Luna, usuario que promociona eventos culturales',
-            caption: 'User persona de usuario que promociona evento'
+            caption: {
+              en: 'User persona for someone promoting an event',
+              es: 'User persona de usuario que promociona evento'
+            }
           }
         ]
       },
       {
         type: 'media',
-        heading: 'Test A/B',
-        body: '<p>A la hora de definir la vista inicial de los eventos se nos ocurrieron dos formatos diferentes que quisimos poner a prueba. Le presentamos a varios usuarios diferentes opciones de visualización y definir mejor en función del feedback obtenido.</p><div class="test-ab-columns"><div><h4>Objetivo</h4><p>Determinar qué formato de visualización de listado de eventos resulta más cómodo y funcional.</p></div><div><h4>Pasos</h4><ul><li>Explicación de la app</li><li>Elección de una de las opciones</li><li>Ponderación del usuario</li></ul></div></div>',
+        heading: {
+          en: 'A/B Test',
+          es: 'Test A/B'
+        },
+        body: {
+          en: '<p>When defining the initial event view, we came up with two different formats that we wanted to test. We presented several users with different display options to make a better decision based on the feedback collected.</p><div class="test-ab-columns"><div><h4>Objective</h4><p>Determine which event-listing display format is more comfortable and functional.</p></div><div><h4>Steps</h4><ul><li>Explanation of the app</li><li>Selection of one option</li><li>User rating</li></ul></div></div>',
+          es: '<p>A la hora de definir la vista inicial de los eventos se nos ocurrieron dos formatos diferentes que quisimos poner a prueba. Le presentamos a varios usuarios diferentes opciones de visualización y definir mejor en función del feedback obtenido.</p><div class="test-ab-columns"><div><h4>Objetivo</h4><p>Determinar qué formato de visualización de listado de eventos resulta más cómodo y funcional.</p></div><div><h4>Pasos</h4><ul><li>Explicación de la app</li><li>Elección de una de las opciones</li><li>Ponderación del usuario</li></ul></div></div>'
+        },
         image: '/assets/project-buscarte-results.webp',
         alt: 'A/B test results for Buscarte',
-        caption: 'Resultados del Test A/B',
+        caption: {
+          en: 'A/B test results',
+          es: 'Resultados del Test A/B'
+        },
         wide: true
       },
       {
         type: 'media',
         image: '/assets/buscarte-busquedaeventofinal.png',
         alt: 'Resultado final de la búsqueda de evento en Buscarte',
-        caption: 'Resultado final a partir del feedback obtenido en el test A/B',
+        caption: {
+          en: 'Final result based on the feedback collected in the A/B test',
+          es: 'Resultado final a partir del feedback obtenido en el test A/B'
+        },
         wide: true
       },
       {
-        type: 'split',
-        heading: 'Design system & UX writing',
+        type: 'text',
+        heading: {
+          en: 'Monetization',
+          es: 'Monetización'
+        },
         body: {
-          en: '<p>Because the app was designed for Buenos Aires, the visual style and tone incorporate everyday local expressions to create closeness and familiarity.</p><p>We also developed a light design system with typography, color, component states, and iconography.</p>',
-          es: '<p>Al tratarse de una aplicación pensada para la Ciudad de Buenos Aires, el estilo visual y el tono incorporan expresiones propias del lenguaje cotidiano para generar cercanía y familiaridad.</p><p>También se desarrolló un sistema liviano de tipografías, colores, estados de componentes e iconografía.</p>'
+          en: '<p>Our goal was to provide greater access to independent culture without major costs. For that reason, many options would remain free, with the optional possibility of obtaining statistics and insights on consumption patterns to guide proposals more effectively.</p><p>Organizers can pay to know how many times their event was viewed or opened, as well as the hours and days with the highest traffic.</p>',
+          es: '<p>Nuestro objetivo era dar mayor acceso a la cultura independiente sin grandes costos. Por ello, una gran cantidad de opciones se mantendrían gratuitas, ofreciendo la posibilidad opcional de obtener estadísticas e insights sobre los consumos para orientar de manera más efectiva sus propuestas.</p><p>El organizador puede pagar para saber la cantidad de veces que se vio o se entró a su evento, así como los horarios y días de mayor tráfico.</p>'
+        }
+      },
+      {
+        type: 'screens',
+        images: [
+          {
+            src: '/assets/buscarte-estadisticasmockup.png',
+            alt: 'Pantalla de estadísticas del evento en Buscarte'
+          },
+          {
+            src: '/assets/buscarte-miseventosmockup.png',
+            alt: 'Pantalla de mis eventos en Buscarte'
+          }
+        ]
+      },
+      {
+        type: 'split',
+        heading: {
+          en: 'Design system & UX writing',
+          es: 'Sistema de diseño y UX writing'
+        },
+        body: {
+          en: '<p>Because this application was designed exclusively for the City of Buenos Aires, we chose a visual style and communication tone that incorporated localisms and everyday expressions.</p><p>This decision aimed to create closeness, familiarity, and greater engagement, using UX writing as a key tool to connect with users.</p>',
+          es: '<p>Al tratarse de una aplicación pensada exclusivamente para la Ciudad de Buenos Aires, optamos por un estilo visual y un tono comunicacional que incorporara localismos y expresiones propias del lenguaje cotidiano.</p><p>Esta decisión buscó generar cercanía, familiaridad y mayor engagement, utilizando el UX writing como una herramienta clave para conectar con los usuarios.</p>'
         },
         image: '/assets/project-buscarte-system.webp',
         alt: 'Buscarte design system'
+      },
+      {
+        type: 'media',
+        heading: {
+          en: 'UX Kit',
+          es: 'UX Kit'
+        },
+        body: {
+          en: '<p>A lightweight design system was developed to ensure visual consistency throughout the product, including typography, color palette, component states, and iconography.</p>',
+          es: '<p>Se desarrolló un sistema de diseño liviano para garantizar coherencia visual a lo largo del producto, incluyendo tipografías, paleta de colores, estados de componentes e iconografía.</p>'
+        },
+        image: '/assets/buscarte-uxkit.png',
+        alt: 'UX kit de Buscarte con tipografías, colores, botones e iconografía',
+        wide: true
       },
       {
         type: 'embed',
@@ -326,8 +415,8 @@ export const projects: Project[] = [
           es: 'Conclusiones y aprendizajes'
         },
         body: {
-          en: '<p>This project helped us understand the difficulties users and organizers face when discovering and promoting independent cultural events.</p><p>The process reinforced the importance of validating initial hypotheses with real research, balancing user and organizer goals, and using cultural context as a design tool.</p>',
-          es: '<p>Este proyecto permitió comprender las dificultades que enfrentan usuarios y organizadores al descubrir y difundir eventos culturales independientes.</p><p>El proceso reforzó la importancia de validar hipótesis con investigación real, equilibrar objetivos de usuarios y organizadores, y usar el contexto cultural como herramienta de diseño.</p>'
+          en: '<p>This project made it possible to understand in depth the difficulties that both users and organizers face when discovering and promoting independent cultural events in the City of Buenos Aires.</p><p>Through a research-centered process, scattered and hard-to-access information was transformed into a clear, unified proposal oriented around real user needs.</p><p>Among the main learnings, I highlight the importance of:</p><ul><li>Validating initial hypotheses with real research</li><li>Designing solutions that balance user and organizer goals</li><li>Using UX writing and cultural context as key tools to create closeness and engagement</li></ul><p>This case reinforced my interest in designing digital experiences with social impact, where research, communication, and design work in an integrated way.</p><h3>Next steps</h3><p>Usability testing, design iteration, and validation with cultural organizers.</p>',
+          es: '<p>Este proyecto permitió comprender en profundidad las dificultades que enfrentan tanto los usuarios como los organizadores al momento de descubrir y difundir eventos culturales independientes en la Ciudad de Buenos Aires.</p><p>A través de un proceso centrado en la investigación, fue posible transformar información dispersa y poco accesible en una propuesta clara, unificada y orientada a las necesidades reales de las personas.</p><p>Entre los principales aprendizajes, destaco la importancia de:</p><ul><li>Validar hipótesis iniciales con investigación real</li><li>Diseñar soluciones que equilibren objetivos de usuarios y organizadores</li><li>Utilizar el UX writing y el contexto cultural como herramientas clave para generar cercanía y engagement</li></ul><p>Este caso reforzó mi interés por diseñar experiencias digitales con impacto social, donde la investigación, la comunicación y el diseño trabajan de forma integrada.</p><h3>Próximos pasos</h3><p>Realización testeo de usabilidad, iteración del diseño y validación con organizadores culturales.</p>'
         }
       }
     ]

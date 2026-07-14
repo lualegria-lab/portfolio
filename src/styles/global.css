@@ -654,6 +654,13 @@ figcaption {
   align-items: start;
 }
 
+.screens-grid:where(.two-up) {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(28px, 5vw, 56px);
+  max-width: 860px;
+  margin: 0 auto;
+}
+
 .screens-grid figure {
   background: transparent;
 }
