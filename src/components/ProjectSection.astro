@@ -1,5 +1,5 @@
 ---
-import type { ProjectSection } from '../data/portfolio';
+import type { LocalizedAsset, ProjectSection } from '../data/portfolio';
 import Localized from './Localized.astro';
 
 type Props = {
@@ -7,6 +7,17 @@ type Props = {
 };
 
 const { section } = Astro.props;
+const getAssetVariants = (asset: LocalizedAsset) =>
+  typeof asset === 'string'
+    ? [{ src: asset }]
+    : [
+        { src: asset.en, lang: 'en' },
+        { src: asset.es, lang: 'es' }
+      ];
+const mediaImages =
+  section.type === 'media'
+    ? getAssetVariants(section.image)
+    : [];
 ---
 
 {
@@ -27,19 +38,21 @@ const { section } = Astro.props;
           {section.body && <Localized value={section.body} html />}
         </div>
       )}
-      <figure>
-        <button
-          class="image-expand"
-          type="button"
-          data-lightbox-trigger
-          data-lightbox-src={section.image}
-          data-lightbox-alt={section.alt}
-          aria-label={`Open ${section.alt} full screen`}
-        >
-          <img src={section.image} alt={section.alt} loading="lazy" />
-        </button>
-        {section.caption && <figcaption><Localized value={section.caption} /></figcaption>}
-      </figure>
+      {mediaImages.map((image) => (
+        <figure class:list={[image.lang && 'localized-media']} data-lang={image.lang}>
+          <button
+            class="image-expand"
+            type="button"
+            data-lightbox-trigger
+            data-lightbox-src={image.src}
+            data-lightbox-alt={section.alt}
+            aria-label={`Open ${section.alt} full screen`}
+          >
+            <img src={image.src} alt={section.alt} loading="lazy" />
+          </button>
+          {section.caption && <figcaption><Localized value={section.caption} /></figcaption>}
+        </figure>
+      ))}
     </section>
   )
 }
@@ -140,7 +153,10 @@ const { section } = Astro.props;
 
 {
   section.type === 'slider' && (
-    <section class="content-section slider-section">
+    <section
+      class:list={['content-section', 'slider-section', section.lang && 'localized-section']}
+      data-lang={section.lang}
+    >
       {(section.heading || section.body) && (
         <div class="prose">
           {section.heading && <h2><Localized value={section.heading} /></h2>}
@@ -154,16 +170,19 @@ const { section } = Astro.props;
         <div class="slider-track" data-slider-track>
           {section.images.map((image) => (
             <figure class="slider-slide" data-slider-slide>
-              <button
-                class="image-expand"
-                type="button"
-                data-lightbox-trigger
-                data-lightbox-src={image.src}
-                data-lightbox-alt={image.alt}
-                aria-label={`Open ${image.alt} full screen`}
-              >
-                <img src={image.src} alt={image.alt} loading="lazy" />
-              </button>
+              {getAssetVariants(image.src).map((asset) => (
+                <button
+                  class:list={['image-expand', asset.lang && 'localized-media']}
+                  type="button"
+                  data-lang={asset.lang}
+                  data-lightbox-trigger
+                  data-lightbox-src={asset.src}
+                  data-lightbox-alt={image.alt}
+                  aria-label={`Open ${image.alt} full screen`}
+                >
+                  <img src={asset.src} alt={image.alt} loading="lazy" />
+                </button>
+              ))}
               {image.caption && <figcaption><Localized value={image.caption} /></figcaption>}
             </figure>
           ))}

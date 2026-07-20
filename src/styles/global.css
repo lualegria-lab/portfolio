@@ -61,7 +61,9 @@ main img {
 }
 
 span[data-lang],
-.localized-html[data-lang] {
+.localized-html[data-lang],
+.localized-media[data-lang],
+.localized-section[data-lang] {
   display: none;
 }
 
@@ -72,6 +74,16 @@ html[data-lang='es'] span[data-lang='es'] {
 
 html[data-lang='en'] .localized-html[data-lang='en'],
 html[data-lang='es'] .localized-html[data-lang='es'] {
+  display: block;
+}
+
+html[data-lang='en'] .localized-media[data-lang='en'],
+html[data-lang='es'] .localized-media[data-lang='es'] {
+  display: block;
+}
+
+html[data-lang='en'] .localized-section[data-lang='en'],
+html[data-lang='es'] .localized-section[data-lang='es'] {
   display: block;
 }
 

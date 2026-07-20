@@ -1,5 +1,6 @@
 export type Lang = 'en' | 'es';
 export type LocalizedString = string | { en: string; es: string };
+export type LocalizedAsset = string | { en: string; es: string };
 
 export function getText(value: LocalizedString, lang: Lang = 'en') {
   return typeof value === 'string' ? value : value[lang];
@@ -16,7 +17,7 @@ export type ProjectSection =
       type: 'media';
       heading?: LocalizedString;
       body?: LocalizedString;
-      image: string;
+      image: LocalizedAsset;
       alt: string;
       caption?: LocalizedString;
       wide?: boolean;
@@ -51,8 +52,9 @@ export type ProjectSection =
       type: 'slider';
       heading?: LocalizedString;
       body?: LocalizedString;
+      lang?: Lang;
       images: {
-        src: string;
+        src: LocalizedAsset;
         alt: string;
         caption?: LocalizedString;
       }[];
@@ -454,9 +456,18 @@ export const projects: Project[] = [
     sections: [
       {
         type: 'media',
-        heading: 'Market & Cultural Context',
-        body: '<p>Barcelona is widely recognized as one of Europe’s most vibrant hubs for electronic music culture. The city hosts internationally acclaimed events such as Sónar, a leading electronic music and digital arts festival that attracts more than 150,000 attendees from over 90 countries each edition — positioning Barcelona as a global center for electronic music and innovation.</p><p>In addition, music consumption in Spain is predominantly digital and mobile-first. Over 70% of listeners use music streaming services via mobile apps, showing that mobile applications are central to how audiences engage with music content.</p><p>Beyond streaming, people increasingly rely on digital platforms to discover and plan live experiences. Globally, the concert & event discovery app market has surpassed USD 1.1 billion, indicating growing demand for tools that help users find events that match their tastes and location.</p><p>These trends suggest a strong opportunity for a digital solution that helps electronic music fans in Barcelona better discover, explore, and engage with local events — especially within the independent and underground scene.</p>',
-        image: '/assets/project-bem-context.png',
+        heading: {
+          en: 'Market & Cultural Context',
+          es: 'Contexto de mercado y cultural'
+        },
+        body: {
+          en: '<p>Barcelona is widely recognized as one of Europe’s most vibrant hubs for electronic music culture. The city hosts internationally acclaimed events such as Sónar, a leading electronic music and digital arts festival that attracts more than 150,000 attendees from over 90 countries each edition — positioning Barcelona as a global center for electronic music and innovation.</p><p>In addition, music consumption in Spain is predominantly digital and mobile-first. Over 70% of listeners use music streaming services via mobile apps, showing that mobile applications are central to how audiences engage with music content.</p><p>Beyond streaming, people increasingly rely on digital platforms to discover and plan live experiences. Globally, the concert & event discovery app market has surpassed USD 1.1 billion, indicating growing demand for tools that help users find events that match their tastes and location.</p><p>These trends suggest a strong opportunity for a digital solution that helps electronic music fans in Barcelona better discover, explore, and engage with local events — especially within the independent and underground scene.</p>',
+          es: '<p>Barcelona es ampliamente reconocida como uno de los centros más vibrantes de Europa para la cultura de la música electrónica. La ciudad acoge eventos de reconocimiento internacional como Sónar, un festival líder de música electrónica y artes digitales que atrae a más de 150.000 asistentes de más de 90 países en cada edición, posicionando a Barcelona como un centro global de música electrónica e innovación.</p><p>Además, el consumo musical en España es predominantemente digital y centrado en el móvil. Más del 70% de los oyentes utiliza servicios de música en línea a través de aplicaciones móviles, lo que muestra que las aplicaciones móviles son centrales en la forma en que las audiencias interactúan con el contenido musical.</p><p>Más allá de la escucha en línea, las personas recurren cada vez más a plataformas digitales para descubrir y planificar experiencias en vivo. A nivel global, el mercado de aplicaciones de descubrimiento de conciertos y eventos superó los 1.100 millones de USD, lo que indica una demanda creciente de herramientas que ayuden a los usuarios a encontrar eventos alineados con sus gustos y ubicación.</p><p>Estas tendencias sugieren una oportunidad sólida para una solución digital que ayude a los aficionados de la música electrónica en Barcelona a descubrir, explorar e interactuar mejor con eventos locales, especialmente dentro de la escena independiente y alternativa.</p>'
+        },
+        image: {
+          en: '/assets/project-bem-context.png',
+          es: '/assets/BemHipotesis.png'
+        },
         alt: 'BEM market context slide',
         wide: true
       },
@@ -464,9 +475,12 @@ export const projects: Project[] = [
         type: 'media',
         heading: {
           en: 'Project brief',
-          es: 'Brief del proyecto'
+          es: 'Resumen del proyecto'
         },
-        image: '/assets/project-bem-brief.webp',
+        image: {
+          en: '/assets/project-bem-brief.webp',
+          es: '/assets/Bem-Brief-es.png'
+        },
         alt: 'BEM project brief',
         wide: true
       },
@@ -486,11 +500,17 @@ export const projects: Project[] = [
         type: 'slider',
         images: [
           {
-            src: '/assets/bem-userpersona.png',
+            src: {
+              en: '/assets/bem-userpersona.png',
+              es: '/assets/Bem -User Persona 1- es.png'
+            },
             alt: 'BEM user persona Bruno'
           },
           {
-            src: '/assets/bem-userpersona2.png',
+            src: {
+              en: '/assets/bem-userpersona2.png',
+              es: '/assets/Bem-user persona 2-es.png'
+            },
             alt: 'BEM user persona Clara'
           }
         ]
@@ -499,9 +519,12 @@ export const projects: Project[] = [
         type: 'media',
         heading: {
           en: 'Customer journey map',
-          es: 'Customer journey map'
+          es: 'Mapa del recorrido del usuario'
         },
-        body: '<p>Discovering and deciding to attend an electronic music event is not a linear process. Users move between inspiration, exploration, hesitation, and confirmation before taking action.</p><p>This Customer Journey Map visualizes the end-to-end experience, capturing user goals, emotions, behaviors, and pain points at each stage. By mapping these moments, key opportunities were identified to reduce friction, support decision-making, and build trust throughout the journey.</p><p><em>This journey is based on qualitative assumptions and UX best practices derived from similar digital experiences.</em></p>',
+        body: {
+          en: '<p>Discovering and deciding to attend an electronic music event is not a linear process. Users move between inspiration, exploration, hesitation, and confirmation before taking action.</p><p>This Customer Journey Map visualizes the end-to-end experience, capturing user goals, emotions, behaviors, and pain points at each stage. By mapping these moments, key opportunities were identified to reduce friction, support decision-making, and build trust throughout the journey.</p><p><em>This journey is based on qualitative assumptions and UX best practices derived from similar digital experiences.</em></p>',
+          es: '<p>Descubrir y decidir asistir a un evento de música electrónica no es un proceso lineal. Los usuarios se mueven entre la inspiración, la exploración, la duda y la confirmación antes de pasar a la acción.</p><p>Este mapa del recorrido del usuario visualiza la experiencia completa, capturando objetivos, emociones, comportamientos y puntos de dolor en cada etapa. Al mapear estos momentos, se identificaron oportunidades clave para reducir fricciones, acompañar la toma de decisiones y construir confianza a lo largo del recorrido.</p><p><em>Este recorrido se basa en supuestos cualitativos y buenas prácticas de experiencia de usuario derivadas de experiencias digitales similares.</em></p>'
+        },
         image: '/assets/project-bem-journey.png',
         alt: 'BEM customer journey map',
         wide: true
@@ -510,19 +533,46 @@ export const projects: Project[] = [
         type: 'columns',
         columns: [
           {
-            heading: 'Key Insights',
-            note: '(What we learned from the journey)',
-            body: '<ul><li>Event discovery is often inspiration-led, not task-driven.</li><li>Users struggle to identify independent events among mainstream offerings.</li><li>Decision-making relies heavily on social validation and contextual cues.</li><li>Lack of clarity around vibe, audience, and experience increases hesitation.</li><li>Trust and reassurance are critical at the moment of ticket purchase.</li></ul>'
+            heading: {
+              en: 'Key Insights',
+              es: 'Hallazgos clave'
+            },
+            note: {
+              en: '(What we learned from the journey)',
+              es: '(Qué aprendimos a partir del recorrido)'
+            },
+            body: {
+              en: '<ul><li>Event discovery is often inspiration-led, not task-driven.</li><li>Users struggle to identify independent events among mainstream offerings.</li><li>Decision-making relies heavily on social validation and contextual cues.</li><li>Lack of clarity around vibe, audience, and experience increases hesitation.</li><li>Trust and reassurance are critical at the moment of ticket purchase.</li></ul>',
+              es: '<ul><li>El descubrimiento de eventos suele estar guiado por la inspiración, no por una tarea concreta.</li><li>Los usuarios tienen dificultades para identificar eventos independientes entre propuestas más comerciales.</li><li>La toma de decisiones depende en gran medida de la validación social y de señales contextuales.</li><li>La falta de claridad sobre el ambiente, el público y la experiencia aumenta la duda.</li><li>La confianza y la tranquilidad son críticas en el momento de comprar la entrada.</li></ul>'
+            }
           },
           {
-            heading: 'Design Principles',
-            note: '(How insights translated into design decisions)',
-            body: '<dl><dt>Design for exploration before commitment</dt><dd>Support casual browsing and inspiration without forcing early decisions.</dd><dt>Make independent events legible</dt><dd>Use clear tagging, visual cues, and editorial framing to differentiate events.</dd><dt>Reduce cognitive load through clarity</dt><dd>Prioritize essential information (date, price, genre, venue) at a glance.</dd><dt>Leverage social context</dt><dd>Surface social proof to support confidence and reduce decision anxiety.</dd><dt>Build trust at key moments</dt><dd>Reinforce security, transparency, and simplicity during ticketing.</dd></dl>'
+            heading: {
+              en: 'Design Principles',
+              es: 'Principios de diseño'
+            },
+            note: {
+              en: '(How insights translated into design decisions)',
+              es: '(Cómo los hallazgos se tradujeron en decisiones de diseño)'
+            },
+            body: {
+              en: '<dl><dt>Design for exploration before commitment</dt><dd>Support casual browsing and inspiration without forcing early decisions.</dd><dt>Make independent events legible</dt><dd>Use clear tagging, visual cues, and editorial framing to differentiate events.</dd><dt>Reduce cognitive load through clarity</dt><dd>Prioritize essential information (date, price, genre, venue) at a glance.</dd><dt>Leverage social context</dt><dd>Surface social proof to support confidence and reduce decision anxiety.</dd><dt>Build trust at key moments</dt><dd>Reinforce security, transparency, and simplicity during ticketing.</dd></dl>',
+              es: '<dl><dt>Diseñar para explorar antes de comprometerse</dt><dd>Facilitar la navegación casual y la inspiración sin forzar decisiones tempranas.</dd><dt>Hacer legibles los eventos independientes</dt><dd>Usar etiquetas claras, señales visuales y un enfoque editorial para diferenciar los eventos.</dd><dt>Reducir la carga cognitiva mediante claridad</dt><dd>Priorizar la información esencial (fecha, precio, género, sala) de un vistazo.</dd><dt>Aprovechar el contexto social</dt><dd>Mostrar validación social para reforzar la confianza y reducir la ansiedad en la decisión.</dd><dt>Construir confianza en momentos clave</dt><dd>Reforzar la seguridad, la transparencia y la simplicidad durante la compra de entradas.</dd></dl>'
+            }
           },
           {
-            heading: 'Impact on the Final Solution',
-            note: '(How the journey shaped the product)',
-            body: '<ul><li>Curated discovery flows instead of purely chronological lists</li><li>Event cards focused on vibe, genre, and audience fit</li><li>Clear and consistent filtering system</li><li>Context-rich event detail pages</li><li>A streamlined, reassuring ticketing experience</li></ul>'
+            heading: {
+              en: 'Impact on the Final Solution',
+              es: 'Impacto en la solución final'
+            },
+            note: {
+              en: '(How the journey shaped the product)',
+              es: '(Cómo el recorrido moldeó el producto)'
+            },
+            body: {
+              en: '<ul><li>Curated discovery flows instead of purely chronological lists</li><li>Event cards focused on vibe, genre, and audience fit</li><li>Clear and consistent filtering system</li><li>Context-rich event detail pages</li><li>A streamlined, reassuring ticketing experience</li></ul>',
+              es: '<ul><li>Flujos de descubrimiento curados en lugar de listas puramente cronológicas</li><li>Tarjetas de eventos enfocadas en ambiente, género y afinidad con la audiencia</li><li>Un sistema de filtros claro y consistente</li><li>Páginas de detalle de evento ricas en contexto</li><li>Una experiencia de compra de entradas simple, clara y tranquilizadora</li></ul>'
+            }
           }
         ]
       },
@@ -530,16 +580,22 @@ export const projects: Project[] = [
         type: 'media',
         heading: {
           en: 'User flow overview',
-          es: 'User flow'
+          es: 'Flujo de usuario'
         },
-        body: '<p>Based on the insights gathered during research, this user flow represents how people typically discover, evaluate and decide to attend electronic music events.</p><p>Rather than assuming a linear or goal-driven behavior, the flow is designed to support exploratory browsing, moments of hesitation, and social validation before committing to a ticket purchase.</p><p>The experience prioritizes flexibility: users can search, save events for later, compare options, and return to the decision when they feel confident. This approach reflects real user behavior and helps reduce friction at the most critical decision points.</p>',
+        body: {
+          en: '<p>Based on the insights gathered during research, this user flow represents how people typically discover, evaluate and decide to attend electronic music events.</p><p>Rather than assuming a linear or goal-driven behavior, the flow is designed to support exploratory browsing, moments of hesitation, and social validation before committing to a ticket purchase.</p><p>The experience prioritizes flexibility: users can search, save events for later, compare options, and return to the decision when they feel confident. This approach reflects real user behavior and helps reduce friction at the most critical decision points.</p>',
+          es: '<p>Basado en los hallazgos obtenidos durante la investigación, este flujo de usuario representa cómo las personas suelen descubrir, evaluar y decidir asistir a eventos de música electrónica.</p><p>En lugar de asumir un comportamiento lineal u orientado a un único objetivo, el flujo está diseñado para acompañar la exploración, los momentos de duda y la validación social antes de concretar la compra de una entrada.</p><p>La experiencia prioriza la flexibilidad: los usuarios pueden buscar, guardar eventos para más adelante, comparar opciones y volver a la decisión cuando se sienten seguros. Este enfoque refleja comportamientos reales y ayuda a reducir fricciones en los puntos de decisión más críticos.</p>'
+        },
         image: '/assets/project-bem-flow.png',
         alt: 'BEM user flow',
         wide: true
       },
       {
         type: 'screens',
-        heading: 'Wireframes',
+        heading: {
+          en: 'Wireframes',
+          es: 'Bocetos de interfaz'
+        },
         layout: 'five-up',
         images: [
           {
@@ -591,15 +647,37 @@ export const projects: Project[] = [
           es: 'Diseño'
         },
         body: {
-          en: '<p>The design uses vibrant colors to match the festive environment and make the app playful for a young audience. The interface explores complex components, event cards, filters, and responsive adaptations.</p>',
-          es: '<p>El diseño utiliza colores vibrantes para acompañar el concepto festivo y hacer que la app resulte atractiva para un público joven. La interfaz explora componentes complejos, cards de eventos, filtros y adaptaciones responsive.</p>'
+          en: "<p>I used vibrant colors to match the concept of a festive enviroment and make the app playful and appealing for a young user. I used Nunito typeface for headings and body as it is simple, transmits a friendly feeling, a sense of approachability. Plus, is well balanced and it's known for its readability and legibility. For the cards I used Inter, a clean more neutral typeface also widely used in apps, to differienciate the content.</p>",
+          es: '<p>El diseño utiliza colores vibrantes para acompañar el concepto festivo y hacer que la aplicación resulte atractiva para un público joven. La interfaz explora componentes complejos, tarjetas de eventos, filtros y adaptaciones responsivas.</p>'
         }
+      },
+      {
+        type: 'slider',
+        lang: 'en',
+        images: [
+          {
+            src: '/assets/Bem-Event card.png',
+            alt: 'BEM event card anatomy'
+          },
+          {
+            src: '/assets/Bem-Anatomy 1.png',
+            alt: 'BEM event card layout and spacing'
+          },
+          {
+            src: '/assets/Bem-Anatomy 2.png',
+            alt: 'BEM event card nested elements'
+          },
+          {
+            src: '/assets/Design System(1).png',
+            alt: 'BEM design system'
+          }
+        ]
       },
       {
         type: 'embed',
         heading: {
           en: 'Final app design',
-          es: 'Diseño final de la app'
+          es: 'Diseño final de la aplicación'
         },
         url: 'https://www.youtube.com/embed/7O2URhvk15g',
         title: 'BEM final app design video'
@@ -608,11 +686,11 @@ export const projects: Project[] = [
         type: 'split',
         heading: {
           en: 'Desktop version',
-          es: 'Versión desktop'
+          es: 'Versión de escritorio'
         },
         body: {
           en: '<p>Although the application was originally intended for mobile use, users should be able to access it from other devices. The desktop version keeps discovery and event exploration available beyond mobile.</p>',
-          es: '<p>Aunque la aplicación fue pensada originalmente para uso mobile, los usuarios también deberían poder acceder desde otros dispositivos. La versión desktop mantiene disponible la exploración de eventos más allá del móvil.</p>'
+          es: '<p>Aunque la aplicación fue pensada originalmente para uso móvil, los usuarios también deberían poder acceder desde otros dispositivos. La versión de escritorio mantiene disponible la exploración de eventos más allá del móvil.</p>'
         },
         image: '/assets/project-bem-desktop.webp',
         alt: 'BEM desktop design'
