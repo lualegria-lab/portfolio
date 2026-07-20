@@ -404,6 +404,68 @@ figcaption {
   margin-bottom: 0;
 }
 
+.insight-columns-section {
+  max-width: 1120px;
+}
+
+.insight-columns-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(28px, 4vw, 48px);
+  align-items: start;
+}
+
+.insight-column {
+  min-width: 0;
+}
+
+.insight-column h3 {
+  font-size: clamp(25px, 2.6vw, 34px);
+  margin-bottom: 8px;
+}
+
+.insight-column-note {
+  min-height: 3em;
+  margin-bottom: 24px;
+  color: var(--muted);
+  font-size: 16px;
+}
+
+.insight-column-body {
+  color: var(--muted);
+  font-size: 17px;
+}
+
+.insight-column-body ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.insight-column-body li + li {
+  margin-top: 14px;
+}
+
+.insight-column-body li::marker {
+  color: var(--accent-2);
+}
+
+.insight-column-body dl {
+  margin: 0;
+}
+
+.insight-column-body dt {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.insight-column-body dd {
+  margin: 6px 0 22px;
+}
+
+.insight-column-body dd:last-child {
+  margin-bottom: 0;
+}
+
 .prose a {
   color: var(--cyan);
   border-bottom: 1px solid currentColor;
@@ -547,6 +609,10 @@ figcaption {
   max-width: 860px;
 }
 
+.content-section.prose.wide {
+  max-width: 1000px;
+}
+
 .split-section {
   align-items: start;
 }
@@ -641,6 +707,10 @@ figcaption {
   max-width: 1040px;
 }
 
+.screens-section.five-up {
+  max-width: 1120px;
+}
+
 .screens-section > .prose {
   max-width: 720px;
   margin: 0 auto 34px;
@@ -659,6 +729,11 @@ figcaption {
   gap: clamp(28px, 5vw, 56px);
   max-width: 860px;
   margin: 0 auto;
+}
+
+.screens-grid:where(.five-up) {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: clamp(16px, 2vw, 24px);
 }
 
 .screens-grid figure {
@@ -900,12 +975,25 @@ figcaption {
     margin: 0 auto;
   }
 
+  .screens-grid:where(.five-up) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    max-width: 520px;
+  }
+
   .solution-columns {
     grid-template-columns: 1fr;
   }
 
   .test-ab-columns {
     grid-template-columns: 1fr;
+  }
+
+  .insight-columns-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .insight-column-note {
+    min-height: 0;
   }
 
   .slider-slide img {

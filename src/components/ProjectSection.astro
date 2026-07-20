@@ -11,7 +11,7 @@ const { section } = Astro.props;
 
 {
   section.type === 'text' && (
-    <section class="content-section prose">
+    <section class:list={['content-section', 'prose', section.wide && 'wide']}>
       {section.heading && <h2><Localized value={section.heading} /></h2>}
       <Localized value={section.body} html />
     </section>
@@ -90,14 +90,14 @@ const { section } = Astro.props;
 
 {
   section.type === 'screens' && (
-    <section class="content-section screens-section">
+    <section class:list={['content-section', 'screens-section', section.layout]}>
       {(section.heading || section.body) && (
         <div class="prose">
           {section.heading && <h2><Localized value={section.heading} /></h2>}
           {section.body && <Localized value={section.body} html />}
         </div>
       )}
-      <div class:list={['screens-grid', section.images.length === 2 && 'two-up']}>
+      <div class:list={['screens-grid', section.images.length === 2 && 'two-up', section.layout]}>
         {section.images.map((image) => (
           <figure>
             <button
@@ -110,6 +110,28 @@ const { section } = Astro.props;
               style={`background-image: url('${image.src}')`}
             ></button>
           </figure>
+        ))}
+      </div>
+    </section>
+  )
+}
+
+{
+  section.type === 'columns' && (
+    <section class="content-section insight-columns-section">
+      <div class="insight-columns-grid">
+        {section.columns.map((column) => (
+          <div class="insight-column">
+            <div class="prose">
+              <h3><Localized value={column.heading} /></h3>
+              {column.note && (
+                <p class="insight-column-note">
+                  <Localized value={column.note} />
+                </p>
+              )}
+            </div>
+            <Localized value={column.body} html class="insight-column-body" />
+          </div>
         ))}
       </div>
     </section>
