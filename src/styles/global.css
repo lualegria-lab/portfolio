@@ -232,7 +232,7 @@ h3 {
   transition: transform 180ms ease;
 }
 
-.project-thumb:not(.stacked):not(.phone) .thumb-image {
+.project-thumb:not(.stacked):not(.phone):not(.web-devices) .thumb-image {
   width: 74%;
   height: 74%;
 }
@@ -255,6 +255,36 @@ h3 {
   width: 38%;
   aspect-ratio: 397 / 860;
   transform: translateX(calc((var(--i) - 1) * 42%)) rotate(calc((var(--i) - 1) * 10deg));
+}
+
+.project-thumb.web-devices {
+  position: relative;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.04), transparent 54%),
+    var(--panel);
+}
+
+.project-thumb.web-devices .thumb-image {
+  position: absolute;
+  background-size: contain;
+  filter: drop-shadow(0 22px 24px rgba(0, 0, 0, 0.34));
+}
+
+.project-thumb.web-devices .thumb-image:nth-child(1) {
+  z-index: 1;
+  left: 12%;
+  top: 25%;
+  width: 68%;
+  aspect-ratio: 3846 / 2344;
+}
+
+.project-thumb.web-devices .thumb-image:nth-child(2) {
+  z-index: 2;
+  right: 14%;
+  top: 29%;
+  width: 22%;
+  aspect-ratio: 1482 / 3072;
+  filter: drop-shadow(0 18px 18px rgba(0, 0, 0, 0.42));
 }
 
 .project-card:hover .project-thumb .thumb-image {
@@ -425,6 +455,10 @@ figcaption {
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: clamp(28px, 4vw, 48px);
   align-items: start;
+}
+
+.insight-columns-section.columns-2 .insight-columns-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .insight-column {
@@ -813,6 +847,22 @@ figcaption {
   border: 1px solid var(--line);
 }
 
+.transparent-slider .slider-track {
+  background: transparent;
+  border: 0;
+}
+
+.transparent-slider .slider-slide {
+  padding: 0;
+}
+
+.transparent-slider .slider-slide img {
+  height: auto;
+  object-fit: initial;
+  background: transparent;
+  border: 0;
+}
+
 .slider-slide figcaption {
   text-align: center;
 }
@@ -1016,6 +1066,18 @@ figcaption {
     top: auto;
     bottom: 46px;
     transform: none;
+  }
+
+  .project-thumb.web-devices .thumb-image:nth-child(1) {
+    left: 8%;
+    top: 28%;
+    width: 70%;
+  }
+
+  .project-thumb.web-devices .thumb-image:nth-child(2) {
+    right: 22%;
+    top: 30%;
+    width: 20%;
   }
 }
 

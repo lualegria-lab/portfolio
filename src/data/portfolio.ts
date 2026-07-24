@@ -53,6 +53,7 @@ export type ProjectSection =
       heading?: LocalizedString;
       body?: LocalizedString;
       lang?: Lang;
+      transparent?: boolean;
       images: {
         src: LocalizedAsset;
         alt: string;
@@ -76,7 +77,7 @@ export type Project = {
   category: LocalizedString;
   tags: LocalizedString[];
   thumbnail: string[];
-  thumbnailMode?: 'phone';
+  thumbnailMode?: 'phone' | 'web-devices';
   heroImage?: string;
   heroAlt?: string;
   sections: ProjectSection[];
@@ -648,7 +649,7 @@ export const projects: Project[] = [
         },
         body: {
           en: "<p>I used vibrant colors to match the concept of a festive enviroment and make the app playful and appealing for a young user. I used Nunito typeface for headings and body as it is simple, transmits a friendly feeling, a sense of approachability. Plus, is well balanced and it's known for its readability and legibility. For the cards I used Inter, a clean more neutral typeface also widely used in apps, to differienciate the content.</p>",
-          es: '<p>El diseño utiliza colores vibrantes para acompañar el concepto festivo y hacer que la aplicación resulte atractiva para un público joven. La interfaz explora componentes complejos, tarjetas de eventos, filtros y adaptaciones responsivas.</p>'
+          es: '<p>Utilicé colores vibrantes para acompañar el concepto de un entorno festivo y hacer que la app resultara lúdica y atractiva para un usuario joven. Usé la tipografía Nunito para títulos y cuerpo de texto porque es simple, transmite una sensación amigable y cercana. Además, está bien equilibrada y es conocida por su legibilidad. Para las tarjetas utilicé Inter, una tipografía limpia y más neutral, también muy usada en aplicaciones, para diferenciar el contenido.</p>'
         }
       },
       {
@@ -679,6 +680,10 @@ export const projects: Project[] = [
           en: 'Final app design',
           es: 'Diseño final de la aplicación'
         },
+        body: {
+          en: '<p>I made the design entirely on Figma. I developed original items but also included images from Unsplashed, icons from Iconscout (using figma plugins) and mockups obtained from the community.</p><p>Credits for: @luongnd @duxica @mockuuups</p>',
+          es: '<p>Realicé el diseño íntegramente en Figma. Desarrollé elementos originales, pero también incluí imágenes de Unsplashed, íconos de Iconscout (usando plugins de Figma) y mockups obtenidos de la comunidad.</p><p>Créditos: @luongnd @duxica @mockuuups</p>'
+        },
         url: 'https://www.youtube.com/embed/7O2URhvk15g',
         title: 'BEM final app design video'
       },
@@ -692,8 +697,98 @@ export const projects: Project[] = [
           en: '<p>Although the application was originally intended for mobile use, users should be able to access it from other devices. The desktop version keeps discovery and event exploration available beyond mobile.</p>',
           es: '<p>Aunque la aplicación fue pensada originalmente para uso móvil, los usuarios también deberían poder acceder desde otros dispositivos. La versión de escritorio mantiene disponible la exploración de eventos más allá del móvil.</p>'
         },
-        image: '/assets/project-bem-desktop.webp',
+        image: '/assets/bem-mockupdsk1.png',
         alt: 'BEM desktop design'
+      },
+      {
+        type: 'columns',
+        columns: [
+          {
+            heading: {
+              en: 'Design challenges',
+              es: 'Desafíos de diseño'
+            },
+            body: {
+              en: '<ul><li>Provide a seamless experience across multiple devices</li><li>Sustain consistency in user experience</li><li>Think in two dimensions instead of one</li></ul>',
+              es: '<ul><li>Brindar una experiencia fluida en múltiples dispositivos</li><li>Mantener la consistencia en la experiencia de usuario</li><li>Pensar en dos dimensiones en lugar de una sola</li></ul>'
+            }
+          },
+          {
+            heading: {
+              en: 'Implementation',
+              es: 'Implementación'
+            },
+            body: {
+              en: '<ul><li>Use of same design system to mantain identity</li><li>Element adaptation (such as buttons, icons, bars) having in mind the different screen size</li><li>Hierarchies to organize information effectively</li></ul>',
+              es: '<ul><li>Uso del mismo sistema de diseño para mantener la identidad</li><li>Adaptación de elementos (como botones, íconos y barras) teniendo en cuenta los distintos tamaños de pantalla</li><li>Jerarquías para organizar la información de manera efectiva</li></ul>'
+            }
+          }
+        ]
+      },
+      {
+        type: 'slider',
+        heading: 'Wireframes',
+        images: [
+          {
+            src: '/assets/wireframe-Welcome.png',
+            alt: 'BEM welcome page wireframe'
+          },
+          {
+            src: '/assets/wireframe-Home - Explore.png',
+            alt: 'BEM explore events page wireframe'
+          },
+          {
+            src: '/assets/wireframe-Login.png',
+            alt: 'BEM login page wireframe'
+          },
+          {
+            src: '/assets/wireframe-Home - Explore -LOGGED.png',
+            alt: 'BEM logged-in explore events page wireframe'
+          },
+          {
+            src: '/assets/wireframe-Event details.png',
+            alt: 'BEM event details page wireframe'
+          },
+          {
+            src: '/assets/wiraframeCheckout flow-tickets.png',
+            alt: 'BEM checkout ticket quantity wireframe'
+          },
+          {
+            src: '/assets/wireframe-Checkout flow-attende info & payment.png',
+            alt: 'BEM checkout attendee information and payment wireframe'
+          },
+          {
+            src: '/assets/wireframe-Checkout flow-confirmation.png',
+            alt: 'BEM checkout confirmation wireframe'
+          },
+          {
+            src: '/assets/wireframe-Search.png',
+            alt: 'BEM search page wireframe'
+          }
+        ]
+      },
+      {
+        type: 'slider',
+        transparent: true,
+        images: [
+          {
+            src: '/assets/bem-mockupdsk2.png',
+            alt: 'BEM desktop explore events mockup'
+          },
+          {
+            src: '/assets/bem-mockupdsk3.png',
+            alt: 'BEM desktop event details mockup'
+          },
+          {
+            src: '/assets/bem-mockupdsk4.png',
+            alt: 'BEM desktop confirmation mockup'
+          }
+        ]
+      },
+      {
+        type: 'embed',
+        url: 'https://www.youtube.com/embed/vzpieJcIxKM',
+        title: 'BEM wireframes video'
       }
     ]
   },
@@ -713,8 +808,9 @@ export const projects: Project[] = [
       es: 'Proyectos de diseño web construidos con HTML, CSS y frameworks como React y Vue. Me enfoco en crear interfaces simples, claras y responsive, priorizando accesibilidad y necesidades de usuario.'
     },
     tags: ['HTML', 'CSS', 'React', 'Vue'],
-    thumbnail: ['/assets/thumb-web.webp'],
-    heroImage: '/assets/thumb-web.webp',
+    thumbnail: ['/assets/webmockupcover.png', '/assets/webmockupcover1.png'],
+    thumbnailMode: 'web-devices',
+    heroImage: '/assets/webmockupcover.png',
     heroAlt: 'Responsive web design mockups',
     sections: [
       {
@@ -729,6 +825,45 @@ export const projects: Project[] = [
         }
       },
       {
+        type: 'slider',
+        transparent: true,
+        images: [
+          {
+            src: '/assets/web-bike1.png',
+            alt: 'Roar Bikes homepage design'
+          },
+          {
+            src: '/assets/web-bike2.png',
+            alt: 'Roar Bikes testimonials section'
+          },
+          {
+            src: '/assets/web-yogurt1.png',
+            alt: 'Meat-flavoured yogurt homepage design'
+          },
+          {
+            src: '/assets/web-yogurt2.png',
+            alt: 'Meat-flavoured yogurt product cards'
+          },
+          {
+            src: '/assets/webrestaurante1.png',
+            alt: 'Adare restaurant homepage design'
+          },
+          {
+            src: '/assets/webrestaurante2.png',
+            alt: 'Adare restaurant location section'
+          },
+          {
+            src: '/assets/webportfolio2.webp',
+            alt: 'Design and communication portfolio responsive layout'
+          }
+        ]
+      },
+      {
+        type: 'embed',
+        url: 'https://www.youtube.com/embed/ajaECYl7fuI',
+        title: 'Static website projects video'
+      },
+      {
         type: 'text',
         heading: {
           en: 'Interactive web apps',
@@ -738,6 +873,53 @@ export const projects: Project[] = [
           en: '<p>More dynamic projects developed with JavaScript and Vue.js, focusing on component-based architecture, interactivity, and state-driven user interfaces.</p>',
           es: '<p>Proyectos más dinámicos desarrollados con JavaScript y Vue.js, con foco en arquitectura basada en componentes, interactividad e interfaces guiadas por estado.</p>'
         }
+      },
+      {
+        type: 'slider',
+        transparent: true,
+        images: [
+          {
+            src: '/assets/web-guessnum1.png',
+            alt: 'Guess My Number game low guess state'
+          },
+          {
+            src: '/assets/web-guessnum2.png',
+            alt: 'Guess My Number game high guess state'
+          },
+          {
+            src: '/assets/webguessnum3.png',
+            alt: 'Guess My Number game correct number state'
+          },
+          {
+            src: '/assets/web-rolldice1.png',
+            alt: 'Roll Dice game rules modal'
+          },
+          {
+            src: '/assets/web-rolldice2.png',
+            alt: 'Roll Dice game starting state'
+          },
+          {
+            src: '/assets/web-rolldice3.png',
+            alt: 'Roll Dice game active player state'
+          },
+          {
+            src: '/assets/web-pokeapp1.png',
+            alt: 'Pokemon Challenge homepage'
+          },
+          {
+            src: '/assets/web-pokeapp2.png',
+            alt: 'Pokemon Challenge cards grid'
+          },
+          {
+            src: '/assets/web-pokeapp3.png',
+            alt: 'Pokemon Challenge battle selection'
+          }
+        ]
+      },
+      {
+        type: 'embed',
+        url: 'https://www.youtube.com/embed/7bTPI5tvb1c',
+        title: 'Interactive web apps video'
       }
     ]
   },
@@ -763,14 +945,57 @@ export const projects: Project[] = [
     sections: [
       {
         type: 'media',
-        heading: 'Sara Hebe - rapera argentina',
-        body: {
-          en: '<p>A visual design piece built around music, texture, contrast, and expressive typography.</p>',
-          es: '<p>Una pieza visual construida alrededor de música, textura, contraste y tipografía expresiva.</p>'
-        },
         image: '/assets/thumb-design.webp',
         alt: 'Sara Hebe graphic design',
         wide: true
+      },
+      {
+        type: 'slider',
+        transparent: true,
+        images: [
+          {
+            src: '/assets/interzona-flyer.png',
+            alt: 'Interzona flyer design'
+          },
+          {
+            src: '/assets/interzona2-flyer.webp',
+            alt: 'Interzona discount flyer design'
+          }
+        ]
+      },
+      {
+        type: 'media',
+        image: '/assets/flyer-feli.webp',
+        alt: 'Felícitas Rocha trombone lessons flyer',
+        wide: true
+      },
+      {
+        type: 'slider',
+        transparent: true,
+        images: [
+          {
+            src: '/assets/flyer-redsonante.webp',
+            alt: 'Red Sonante music lessons flyer'
+          },
+          {
+            src: '/assets/flyer-redsonante2.webp',
+            alt: 'Red Sonante music lessons alternate flyer'
+          }
+        ]
+      },
+      {
+        type: 'slider',
+        transparent: true,
+        images: [
+          {
+            src: '/assets/coso-flyer.webp',
+            alt: 'Coso Hoy compass flyer'
+          },
+          {
+            src: '/assets/coso-flyer2.webp',
+            alt: 'Coso Hoy credits flyer'
+          }
+        ]
       }
     ]
   },

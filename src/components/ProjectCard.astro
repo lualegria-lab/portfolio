@@ -7,7 +7,7 @@ type Props = {
 };
 
 const { project } = Astro.props;
-const isStack = project.thumbnail.length > 1;
+const isStack = project.thumbnail.length > 1 && project.thumbnailMode !== 'web-devices';
 ---
 
 <a class="project-card" href={`/work/${project.slug}/`}>

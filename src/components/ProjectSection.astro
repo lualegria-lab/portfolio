@@ -131,7 +131,7 @@ const mediaImages =
 
 {
   section.type === 'columns' && (
-    <section class="content-section insight-columns-section">
+    <section class:list={['content-section', 'insight-columns-section', `columns-${section.columns.length}`]}>
       <div class="insight-columns-grid">
         {section.columns.map((column) => (
           <div class="insight-column">
@@ -154,7 +154,12 @@ const mediaImages =
 {
   section.type === 'slider' && (
     <section
-      class:list={['content-section', 'slider-section', section.lang && 'localized-section']}
+      class:list={[
+        'content-section',
+        'slider-section',
+        section.lang && 'localized-section',
+        section.transparent && 'transparent-slider'
+      ]}
       data-lang={section.lang}
     >
       {(section.heading || section.body) && (
