@@ -863,6 +863,55 @@ figcaption {
   border: 0;
 }
 
+.graphic-portrait {
+  --graphic-piece-width: 595px;
+  --graphic-piece-height: 842px;
+}
+
+.writing-portrait {
+  --graphic-piece-width: 500px;
+  --graphic-piece-height: 708px;
+}
+
+.media-section.graphic-portrait,
+.slider-section.graphic-portrait,
+.slider-section.writing-portrait {
+  max-width: var(--graphic-piece-width);
+}
+
+.media-section.graphic-portrait figure,
+.graphic-portrait .slider-slide,
+.writing-portrait .slider-slide {
+  display: grid;
+  justify-items: center;
+}
+
+.media-section.graphic-portrait .image-expand,
+.graphic-portrait .slider-slide .image-expand,
+.writing-portrait .slider-slide .image-expand {
+  width: min(100%, var(--graphic-piece-width));
+  height: auto;
+  aspect-ratio: var(--graphic-piece-width) / var(--graphic-piece-height);
+  background: transparent;
+  overflow: hidden;
+}
+
+.media-section.graphic-portrait .image-expand img,
+.transparent-slider.graphic-portrait .slider-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background: transparent;
+}
+
+.transparent-slider.writing-portrait .slider-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: transparent;
+  clip-path: inset(2px);
+}
+
 .slider-slide figcaption {
   text-align: center;
 }
@@ -922,9 +971,13 @@ figcaption {
   gap: 28px;
 }
 
-.project-more p {
+.project-more-home {
   margin: 0;
   color: var(--muted);
+}
+
+.project-more-home:hover {
+  color: var(--text);
 }
 
 .project-more div {

@@ -31,7 +31,7 @@ const mediaImages =
 
 {
   section.type === 'media' && (
-    <section class:list={['content-section', 'media-section', section.wide && 'wide']}>
+    <section class:list={['content-section', 'media-section', section.wide && 'wide', section.display]}>
       {(section.heading || section.body) && (
         <div class="prose">
           {section.heading && <h2><Localized value={section.heading} /></h2>}
@@ -158,7 +158,8 @@ const mediaImages =
         'content-section',
         'slider-section',
         section.lang && 'localized-section',
-        section.transparent && 'transparent-slider'
+        section.transparent && 'transparent-slider',
+        section.display
       ]}
       data-lang={section.lang}
     >

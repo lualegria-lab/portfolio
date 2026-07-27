@@ -21,6 +21,7 @@ export type ProjectSection =
       alt: string;
       caption?: LocalizedString;
       wide?: boolean;
+      display?: 'graphic-portrait' | 'writing-portrait';
     }
   | {
       type: 'split';
@@ -54,6 +55,7 @@ export type ProjectSection =
       body?: LocalizedString;
       lang?: Lang;
       transparent?: boolean;
+      display?: 'graphic-portrait' | 'writing-portrait';
       images: {
         src: LocalizedAsset;
         alt: string;
@@ -947,11 +949,13 @@ export const projects: Project[] = [
         type: 'media',
         image: '/assets/thumb-design.webp',
         alt: 'Sara Hebe graphic design',
-        wide: true
+        wide: true,
+        display: 'graphic-portrait'
       },
       {
         type: 'slider',
         transparent: true,
+        display: 'graphic-portrait',
         images: [
           {
             src: '/assets/interzona-flyer.png',
@@ -972,6 +976,7 @@ export const projects: Project[] = [
       {
         type: 'slider',
         transparent: true,
+        display: 'graphic-portrait',
         images: [
           {
             src: '/assets/flyer-redsonante.webp',
@@ -986,6 +991,7 @@ export const projects: Project[] = [
       {
         type: 'slider',
         transparent: true,
+        display: 'graphic-portrait',
         images: [
           {
             src: '/assets/coso-flyer.webp',
@@ -1024,18 +1030,72 @@ export const projects: Project[] = [
     heroAlt: 'Photography thumbnail',
     sections: [
       {
-        type: 'media',
-        heading: {
-          en: 'Selected photography',
-          es: 'Fotografía seleccionada'
-        },
-        body: {
-          en: '<p>A small selection from the original photography gallery. More images can be migrated into this page as the portfolio is refined.</p>',
-          es: '<p>Una pequeña selección de la galería original de fotografía. Se pueden migrar más imágenes a esta página a medida que se refine el portfolio.</p>'
-        },
-        image: '/assets/thumb-photo.webp',
-        alt: 'Selected photography',
-        wide: true
+        type: 'slider',
+        transparent: true,
+        images: [
+          {
+            src: '/assets/thumb-photo.webp',
+            alt: 'Photography selected image 1'
+          },
+          {
+            src: '/assets/dogpic1.webp',
+            alt: 'Photography selected image 2'
+          }
+        ]
+      },
+      {
+        type: 'slider',
+        transparent: true,
+        images: [
+          {
+            src: '/assets/imag-paisaje.jpg',
+            alt: 'Photography selected image 3'
+          },
+          {
+            src: '/assets/img-colonia2.jpg',
+            alt: 'Photography selected image 4'
+          }
+        ]
+      },
+      {
+        type: 'slider',
+        transparent: true,
+        images: [
+          {
+            src: '/assets/img- islandia.jpg',
+            alt: 'Photography selected image 5'
+          },
+          {
+            src: '/assets/img-islandia2.JPG',
+            alt: 'Photography selected image 6'
+          },
+          {
+            src: '/assets/img-islandia3.JPG',
+            alt: 'Photography selected image 7'
+          }
+        ]
+      },
+      {
+        type: 'slider',
+        transparent: true,
+        images: [
+          {
+            src: '/assets/img-marcha1.jpg',
+            alt: 'Photography selected image 8'
+          },
+          {
+            src: '/assets/img-marcha2.jpg',
+            alt: 'Photography selected image 9'
+          },
+          {
+            src: '/assets/img-marseille1.JPG',
+            alt: 'Photography selected image 10'
+          },
+          {
+            src: '/assets/img-marseille2.JPG',
+            alt: 'Photography selected image 11'
+          }
+        ]
       }
     ]
   },
@@ -1064,18 +1124,101 @@ export const projects: Project[] = [
     heroAlt: 'Writing work on a laptop mockup',
     sections: [
       {
-        type: 'media',
-        heading: {
-          en: 'Cultural notes and coverage',
-          es: 'Notas culturales y coberturas'
-        },
-        body: {
-          en: '<p>Writing work across cultural notes, music coverage, and journalistic pieces.</p>',
-          es: '<p>Trabajos de escritura vinculados a notas culturales, cobertura musical y piezas periodísticas.</p>'
-        },
-        image: '/assets/thumb-writing.webp',
-        alt: 'Writing work preview',
-        wide: true
+        type: 'slider',
+        transparent: true,
+        display: 'writing-portrait',
+        images: [
+          {
+            src: '/assets/nota-sara1.png',
+            alt: 'Sara Hebe article page 1'
+          },
+          {
+            src: '/assets/nota-sara2.png',
+            alt: 'Sara Hebe article page 2'
+          },
+          {
+            src: '/assets/nota-sara3.png',
+            alt: 'Sara Hebe article page 3'
+          },
+          {
+            src: '/assets/nota-sara4.png',
+            alt: 'Sara Hebe article page 4'
+          },
+          {
+            src: '/assets/nota-sara5.png',
+            alt: 'Sara Hebe article page 5'
+          }
+        ]
+      },
+      {
+        type: 'slider',
+        transparent: true,
+        display: 'writing-portrait',
+        images: [
+          {
+            src: '/assets/nota-bfsunset1.png',
+            alt: 'Before Sunset article page 1'
+          },
+          {
+            src: '/assets/nota-bfsunset2.png',
+            alt: 'Before Sunset article page 2'
+          },
+          {
+            src: '/assets/nota-almodovar1.png',
+            alt: 'Almodovar article page 1'
+          },
+          {
+            src: '/assets/nota-alomodovar2.png',
+            alt: 'Almodovar article page 2'
+          }
+        ]
+      },
+      {
+        type: 'slider',
+        transparent: true,
+        display: 'writing-portrait',
+        images: [
+          {
+            src: '/assets/nota-aborto1.png',
+            alt: 'Sera ley article page 1'
+          },
+          {
+            src: '/assets/nota-aborto2.png',
+            alt: 'Sera ley article page 2'
+          },
+          {
+            src: '/assets/nota-aborto3.png',
+            alt: 'Sera ley article page 3'
+          },
+          {
+            src: '/assets/nota-belen1.png',
+            alt: 'Libertad para Belen article page 1'
+          },
+          {
+            src: '/assets/nota-belen2.png',
+            alt: 'Libertad para Belen article page 2'
+          },
+          {
+            src: '/assets/nota-belen3.png',
+            alt: 'Acto por la libertad de Belen article page 1'
+          },
+          {
+            src: '/assets/nota-belen4.png',
+            alt: 'Acto por la libertad de Belen article page 2'
+          },
+          {
+            src: '/assets/nota-belen5.png',
+            alt: 'Acto por la libertad de Belen article page 3'
+          },
+          {
+            src: '/assets/nota-docentes1.png',
+            alt: 'Docentes fueguinos article page 1'
+          },
+          {
+            src: '/assets/nota-docentes2.png',
+            alt: 'Docentes fueguinos article page 2'
+          }
+        ]
       }
     ]
   }

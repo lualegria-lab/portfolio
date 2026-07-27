@@ -16,7 +16,7 @@ const projectHeroAlt = project.heroAlt ?? getText(project.title);
 ---
 
 <BaseLayout title={`Lucía Alegria - ${getText(project.title)}`}>
-  <article class="project-page">
+  <article class:list={['project-page', `project-${project.slug}`]}>
     <header class="project-hero">
       <div class="project-hero-copy">
         <p class="meta"><Localized value={project.category} /></p>
@@ -45,7 +45,7 @@ const projectHeroAlt = project.heroAlt ?? getText(project.title);
     {project.sections.map((section) => <ProjectSection section={section} />)}
 
     <nav class="project-more" aria-label="More work">
-      <p><Localized value={ui.moreWork} /></p>
+      <a class="project-more-home" href="/"><Localized value={ui.moreWork} /></a>
       <div>
         {projects
           .filter((item) => item.slug !== project.slug)
