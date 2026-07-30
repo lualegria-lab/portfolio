@@ -1,6 +1,6 @@
-# Lucia Portfolio
+# Lucía Alegria Portfolio
 
-Portfolio built with Astro.
+Lucía Alegria Talon's portfolio, built with Astro.
 
 ## Requirements
 
