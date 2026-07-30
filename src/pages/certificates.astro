@@ -2,18 +2,21 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Localized from '../components/Localized.astro';
 import { certificates, ui } from '../data/portfolio';
+
+const description =
+  'Certificates and professional training credentials in UX/UI design, frontend development, web design and communication.';
 ---
 
-<BaseLayout active="certificates" title="Lucía Alegria - Certificates">
+<BaseLayout active="certificates" title="Lucía Alegria - Certificates" description={description}>
   <section class="page-shell">
     <div class="page-heading">
       <p class="meta"><Localized value={ui.certificatesEyebrow} /></p>
       <h1><Localized value={ui.certificatesTitle} /></h1>
     </div>
     <div class="certificate-grid">
-      {certificates.map((certificate, index) => (
+      {certificates.map((certificate) => (
         <figure>
-          <img src={certificate} alt={`Certificate ${index + 1}`} loading="lazy" />
+          <img src={certificate.src} alt={certificate.alt} loading="lazy" />
         </figure>
       ))}
     </div>

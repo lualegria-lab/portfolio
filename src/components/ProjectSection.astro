@@ -1,5 +1,5 @@
 ---
-import type { LocalizedAsset, ProjectSection } from '../data/portfolio';
+import type { Lang, LocalizedAsset, ProjectSection } from '../data/portfolio';
 import Localized from './Localized.astro';
 
 type Props = {
@@ -7,7 +7,12 @@ type Props = {
 };
 
 const { section } = Astro.props;
-const getAssetVariants = (asset: LocalizedAsset) =>
+type AssetVariant = {
+  src: string;
+  lang?: Lang;
+};
+
+const getAssetVariants = (asset: LocalizedAsset): AssetVariant[] =>
   typeof asset === 'string'
     ? [{ src: asset }]
     : [

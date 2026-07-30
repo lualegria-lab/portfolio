@@ -2,9 +2,12 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Localized from '../components/Localized.astro';
 import { aboutSections, ui } from '../data/portfolio';
+
+const description =
+  'About Lucía Alegria, a communications specialist and UX/UI designer based in Barcelona with experience in digital communication, cultural projects and technology.';
 ---
 
-<BaseLayout active="about" title="Lucía Alegria - About">
+<BaseLayout active="about" title="Lucía Alegria - About" description={description}>
   <section class="page-shell">
     <h1><Localized value={ui.aboutTitle} /></h1>
     <div class="about-stack">

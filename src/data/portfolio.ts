@@ -110,6 +110,10 @@ export const ui = {
     en: 'Experience and education',
     es: 'Experiencia y formación'
   },
+  cvTitle: {
+    en: 'Resume',
+    es: 'Currículum'
+  },
   contactEyebrow: {
     en: 'Get in touch',
     es: 'Contacto'
@@ -152,12 +156,24 @@ export const profile = {
   email: 'alegria.lu@gmail.com',
   heroImage: '/assets/hero-portrait.webp',
   introEyebrow: {
-    en: 'Hey there!',
-    es: '¡Hola!'
+    en: 'Hi, I\'m Lucía',
+    es: 'Hola, soy Lucía'
   },
-  intro: {
-    en: 'I’m Lucía Alegria, Communications specialist & UX designer based in BCN.',
-    es: 'Soy Lucía Alegria, especialista en comunicación y diseñadora UX basada en BCN.'
+  introHeading: {
+    en: ['Digital Communication', 'Strategist and', 'Content Designer.'],
+    es: ['Estratega en Comunicación Digital', 'y Content Designer.']
+  },
+  introBody: {
+    en: [
+      'I help organizations create clearer,',
+      'more useful digital products',
+      'and people-centered experiences.'
+    ],
+    es: [
+      'Ayudo a organizaciones a crear productos',
+      'y experiencias digitales más claras,',
+      'útiles y centradas en las personas.'
+    ]
   }
 };
 
@@ -179,23 +195,23 @@ export const projects: Project[] = [
       { en: 'Mobile app', es: 'App mobile' },
       { en: 'Culture', es: 'Cultura' }
     ],
-    thumbnail: ['/assets/buscarte-covermockup.png'],
-    heroImage: '/assets/cover-mockup1.png',
+    thumbnail: ['/assets/buscarte-covermockup.webp'],
+    heroImage: '/assets/cover-mockup1.webp',
     heroAlt: 'Buscarte app cover mockup',
     sections: [
       {
         type: 'screens',
         images: [
           {
-            src: '/assets/primeravista-mockup.png',
+            src: '/assets/primeravista-mockup.webp',
             alt: 'Buscarte event discovery screen'
           },
           {
-            src: '/assets/elegiruser-mockup.png',
+            src: '/assets/elegiruser-mockup.webp',
             alt: 'Buscarte user choice screen'
           },
           {
-            src: '/assets/gustosmockup.png',
+            src: '/assets/gustosmockup.webp',
             alt: 'Buscarte preferences screen'
           }
         ]
@@ -248,7 +264,7 @@ export const projects: Project[] = [
       },
       {
         type: 'media',
-        image: '/assets/usersurvey.png',
+        image: '/assets/usersurvey.webp',
         alt: 'Survey observations from Buscarte users',
         caption: {
           en: 'Main observations from survey respondents',
@@ -281,7 +297,7 @@ export const projects: Project[] = [
         type: 'slider',
         images: [
           {
-            src: '/assets/empathymap.png',
+            src: '/assets/empathymap.webp',
             alt: 'Mapa de empatía de usuarios de Buscarte',
             caption: {
               en: 'Empathy map',
@@ -289,7 +305,7 @@ export const projects: Project[] = [
             }
           },
           {
-            src: '/assets/mapadeafinidad.jpg',
+            src: '/assets/mapadeafinidad.webp',
             alt: 'Mapa de afinidad de la investigación de Buscarte',
             caption: {
               en: 'Affinity map',
@@ -355,7 +371,7 @@ export const projects: Project[] = [
       },
       {
         type: 'media',
-        image: '/assets/buscarte-busquedaeventofinal.png',
+        image: '/assets/buscarte-busquedaeventofinal.webp',
         alt: 'Resultado final de la búsqueda de evento en Buscarte',
         caption: {
           en: 'Final result based on the feedback collected in the A/B test',
@@ -378,11 +394,11 @@ export const projects: Project[] = [
         type: 'screens',
         images: [
           {
-            src: '/assets/buscarte-estadisticasmockup.png',
+            src: '/assets/buscarte-estadisticasmockup.webp',
             alt: 'Pantalla de estadísticas del evento en Buscarte'
           },
           {
-            src: '/assets/buscarte-miseventosmockup.png',
+            src: '/assets/buscarte-miseventosmockup.webp',
             alt: 'Pantalla de mis eventos en Buscarte'
           }
         ]
@@ -450,11 +466,11 @@ export const projects: Project[] = [
     },
     tags: ['UX/UI', { en: 'Design system', es: 'Sistema de diseño' }, { en: 'Events', es: 'Eventos' }],
     thumbnail: [
-      '/assets/bem-covermockup.png',
-      '/assets/bem-eventdisplaymockup.png',
-      '/assets/bem-searcheventmockup.png'
+      '/assets/bem-covermockup.webp',
+      '/assets/bem-eventdisplaymockup.webp',
+      '/assets/bem-searcheventmockup.webp'
     ],
-    heroImage: '/assets/bem-covermockup.png',
+    heroImage: '/assets/bem-covermockup.webp',
     heroAlt: 'BEM welcome screen',
     sections: [
       {
@@ -482,7 +498,7 @@ export const projects: Project[] = [
         },
         image: {
           en: '/assets/project-bem-brief.webp',
-          es: '/assets/Bem-Brief-es.png'
+          es: '/assets/Bem-Brief-es.webp'
         },
         alt: 'BEM project brief',
         wide: true
@@ -504,15 +520,15 @@ export const projects: Project[] = [
         images: [
           {
             src: {
-              en: '/assets/bem-userpersona.png',
-              es: '/assets/Bem -User Persona 1- es.png'
+              en: '/assets/bem-userpersona.webp',
+              es: '/assets/Bem -User Persona 1- es.webp'
             },
             alt: 'BEM user persona Bruno'
           },
           {
             src: {
-              en: '/assets/bem-userpersona2.png',
-              es: '/assets/Bem-user persona 2-es.png'
+              en: '/assets/bem-userpersona2.webp',
+              es: '/assets/Bem-user persona 2-es.webp'
             },
             alt: 'BEM user persona Clara'
           }
@@ -528,7 +544,7 @@ export const projects: Project[] = [
           en: '<p>Discovering and deciding to attend an electronic music event is not a linear process. Users move between inspiration, exploration, hesitation, and confirmation before taking action.</p><p>This Customer Journey Map visualizes the end-to-end experience, capturing user goals, emotions, behaviors, and pain points at each stage. By mapping these moments, key opportunities were identified to reduce friction, support decision-making, and build trust throughout the journey.</p><p><em>This journey is based on qualitative assumptions and UX best practices derived from similar digital experiences.</em></p>',
           es: '<p>Descubrir y decidir asistir a un evento de música electrónica no es un proceso lineal. Los usuarios se mueven entre la inspiración, la exploración, la duda y la confirmación antes de pasar a la acción.</p><p>Este mapa del recorrido del usuario visualiza la experiencia completa, capturando objetivos, emociones, comportamientos y puntos de dolor en cada etapa. Al mapear estos momentos, se identificaron oportunidades clave para reducir fricciones, acompañar la toma de decisiones y construir confianza a lo largo del recorrido.</p><p><em>Este recorrido se basa en supuestos cualitativos y buenas prácticas de experiencia de usuario derivadas de experiencias digitales similares.</em></p>'
         },
-        image: '/assets/project-bem-journey.png',
+        image: '/assets/project-bem-journey.webp',
         alt: 'BEM customer journey map',
         wide: true
       },
@@ -589,7 +605,7 @@ export const projects: Project[] = [
           en: '<p>Based on the insights gathered during research, this user flow represents how people typically discover, evaluate and decide to attend electronic music events.</p><p>Rather than assuming a linear or goal-driven behavior, the flow is designed to support exploratory browsing, moments of hesitation, and social validation before committing to a ticket purchase.</p><p>The experience prioritizes flexibility: users can search, save events for later, compare options, and return to the decision when they feel confident. This approach reflects real user behavior and helps reduce friction at the most critical decision points.</p>',
           es: '<p>Basado en los hallazgos obtenidos durante la investigación, este flujo de usuario representa cómo las personas suelen descubrir, evaluar y decidir asistir a eventos de música electrónica.</p><p>En lugar de asumir un comportamiento lineal u orientado a un único objetivo, el flujo está diseñado para acompañar la exploración, los momentos de duda y la validación social antes de concretar la compra de una entrada.</p><p>La experiencia prioriza la flexibilidad: los usuarios pueden buscar, guardar eventos para más adelante, comparar opciones y volver a la decisión cuando se sienten seguros. Este enfoque refleja comportamientos reales y ayuda a reducir fricciones en los puntos de decisión más críticos.</p>'
         },
-        image: '/assets/project-bem-flow.png',
+        image: '/assets/project-bem-flow.webp',
         alt: 'BEM user flow',
         wide: true
       },
@@ -699,7 +715,7 @@ export const projects: Project[] = [
           en: '<p>Although the application was originally intended for mobile use, users should be able to access it from other devices. The desktop version keeps discovery and event exploration available beyond mobile.</p>',
           es: '<p>Aunque la aplicación fue pensada originalmente para uso móvil, los usuarios también deberían poder acceder desde otros dispositivos. La versión de escritorio mantiene disponible la exploración de eventos más allá del móvil.</p>'
         },
-        image: '/assets/bem-mockupdsk1.png',
+        image: '/assets/bem-mockupdsk1.webp',
         alt: 'BEM desktop design'
       },
       {
@@ -774,15 +790,15 @@ export const projects: Project[] = [
         transparent: true,
         images: [
           {
-            src: '/assets/bem-mockupdsk2.png',
+            src: '/assets/bem-mockupdsk2.webp',
             alt: 'BEM desktop explore events mockup'
           },
           {
-            src: '/assets/bem-mockupdsk3.png',
+            src: '/assets/bem-mockupdsk3.webp',
             alt: 'BEM desktop event details mockup'
           },
           {
-            src: '/assets/bem-mockupdsk4.png',
+            src: '/assets/bem-mockupdsk4.webp',
             alt: 'BEM desktop confirmation mockup'
           }
         ]
@@ -810,9 +826,9 @@ export const projects: Project[] = [
       es: 'Proyectos de diseño web construidos con HTML, CSS y frameworks como React y Vue. Me enfoco en crear interfaces simples, claras y responsive, priorizando accesibilidad y necesidades de usuario.'
     },
     tags: ['HTML', 'CSS', 'React', 'Vue'],
-    thumbnail: ['/assets/webmockupcover.png', '/assets/webmockupcover1.png'],
+    thumbnail: ['/assets/webmockupcover.webp', '/assets/webmockupcover1.webp'],
     thumbnailMode: 'web-devices',
-    heroImage: '/assets/webmockupcover.png',
+    heroImage: '/assets/webmockupcover.webp',
     heroAlt: 'Responsive web design mockups',
     sections: [
       {
@@ -831,7 +847,7 @@ export const projects: Project[] = [
         transparent: true,
         images: [
           {
-            src: '/assets/web-bike1.png',
+            src: '/assets/web-bike1.webp',
             alt: 'Roar Bikes homepage design'
           },
           {
@@ -839,19 +855,19 @@ export const projects: Project[] = [
             alt: 'Roar Bikes testimonials section'
           },
           {
-            src: '/assets/web-yogurt1.png',
+            src: '/assets/web-yogurt1.webp',
             alt: 'Meat-flavoured yogurt homepage design'
           },
           {
-            src: '/assets/web-yogurt2.png',
+            src: '/assets/web-yogurt2.webp',
             alt: 'Meat-flavoured yogurt product cards'
           },
           {
-            src: '/assets/webrestaurante1.png',
+            src: '/assets/webrestaurante1.webp',
             alt: 'Adare restaurant homepage design'
           },
           {
-            src: '/assets/webrestaurante2.png',
+            src: '/assets/webrestaurante2.webp',
             alt: 'Adare restaurant location section'
           },
           {
@@ -905,7 +921,7 @@ export const projects: Project[] = [
             alt: 'Roll Dice game active player state'
           },
           {
-            src: '/assets/web-pokeapp1.png',
+            src: '/assets/web-pokeapp1.webp',
             alt: 'Pokemon Challenge homepage'
           },
           {
@@ -1027,7 +1043,7 @@ export const projects: Project[] = [
     ],
     thumbnail: ['/assets/thumb-photo.webp'],
     heroImage: '/assets/thumb-photo.webp',
-    heroAlt: 'Photography thumbnail',
+    heroAlt: 'Portrait of a dog near a rocky coastline',
     sections: [
       {
         type: 'slider',
@@ -1035,11 +1051,11 @@ export const projects: Project[] = [
         images: [
           {
             src: '/assets/thumb-photo.webp',
-            alt: 'Photography selected image 1'
+            alt: 'Dog portrait near a rocky coastline'
           },
           {
             src: '/assets/dogpic1.webp',
-            alt: 'Photography selected image 2'
+            alt: 'Dog resting on a beach at sunset'
           }
         ]
       },
@@ -1049,11 +1065,11 @@ export const projects: Project[] = [
         images: [
           {
             src: '/assets/imag-paisaje.jpg',
-            alt: 'Photography selected image 3'
+            alt: 'Cloudy landscape with trees silhouetted against the sky'
           },
           {
-            src: '/assets/img-colonia2.jpg',
-            alt: 'Photography selected image 4'
+            src: '/assets/img-colonia2.webp',
+            alt: 'Red colonial house on a cobblestone street'
           }
         ]
       },
@@ -1062,16 +1078,16 @@ export const projects: Project[] = [
         transparent: true,
         images: [
           {
-            src: '/assets/img- islandia.jpg',
-            alt: 'Photography selected image 5'
+            src: '/assets/img- islandia.webp',
+            alt: 'Turquoise river running through a rocky Icelandic landscape'
           },
           {
-            src: '/assets/img-islandia2.JPG',
-            alt: 'Photography selected image 6'
+            src: '/assets/img-islandia2.webp',
+            alt: 'Snowy mountain and frozen landscape in Iceland'
           },
           {
-            src: '/assets/img-islandia3.JPG',
-            alt: 'Photography selected image 7'
+            src: '/assets/img-islandia3.webp',
+            alt: 'Snow-covered waterfall and canyon in Iceland'
           }
         ]
       },
@@ -1081,19 +1097,19 @@ export const projects: Project[] = [
         images: [
           {
             src: '/assets/img-marcha1.jpg',
-            alt: 'Photography selected image 8'
+            alt: 'Black and white street protest with a drummer'
           },
           {
-            src: '/assets/img-marcha2.jpg',
-            alt: 'Photography selected image 9'
+            src: '/assets/img-marcha2.webp',
+            alt: 'Student assembly protest with banners and drums'
           },
           {
-            src: '/assets/img-marseille1.JPG',
-            alt: 'Photography selected image 10'
+            src: '/assets/img-marseille1.webp',
+            alt: 'Street musicians performing from a balcony in Marseille'
           },
           {
-            src: '/assets/img-marseille2.JPG',
-            alt: 'Photography selected image 11'
+            src: '/assets/img-marseille2.webp',
+            alt: 'Percussion group performing in the street in Marseille'
           }
         ]
       }
@@ -1179,11 +1195,11 @@ export const projects: Project[] = [
         display: 'writing-portrait',
         images: [
           {
-            src: '/assets/nota-aborto1.png',
+            src: '/assets/nota-aborto1.webp',
             alt: 'Sera ley article page 1'
           },
           {
-            src: '/assets/nota-aborto2.png',
+            src: '/assets/nota-aborto2.webp',
             alt: 'Sera ley article page 2'
           },
           {
@@ -1199,23 +1215,23 @@ export const projects: Project[] = [
             alt: 'Libertad para Belen article page 2'
           },
           {
-            src: '/assets/nota-belen3.png',
+            src: '/assets/nota-belen3.webp',
             alt: 'Acto por la libertad de Belen article page 1'
           },
           {
-            src: '/assets/nota-belen4.png',
+            src: '/assets/nota-belen4.webp',
             alt: 'Acto por la libertad de Belen article page 2'
           },
           {
-            src: '/assets/nota-belen5.png',
+            src: '/assets/nota-belen5.webp',
             alt: 'Acto por la libertad de Belen article page 3'
           },
           {
-            src: '/assets/nota-docentes1.png',
+            src: '/assets/nota-docentes1.webp',
             alt: 'Docentes fueguinos article page 1'
           },
           {
-            src: '/assets/nota-docentes2.png',
+            src: '/assets/nota-docentes2.webp',
             alt: 'Docentes fueguinos article page 2'
           }
         ]
@@ -1225,18 +1241,36 @@ export const projects: Project[] = [
 ];
 
 export const certificates = [
-  '/assets/certificate-1.png',
-  '/assets/certificate-2.webp',
-  '/assets/certificate-3.webp',
-  '/assets/certificate-4.webp',
-  '/assets/certificate-5.webp',
-  '/assets/certificate-6.webp'
+  {
+    src: '/assets/certificate-1.png',
+    alt: 'Front End Web Developer specialization certificate from Universitat Oberta de Catalunya'
+  },
+  {
+    src: '/assets/certificate-2.webp',
+    alt: 'Figma Advanced Training with Distinction certificate'
+  },
+  {
+    src: '/assets/certificate-3.webp',
+    alt: 'Responsive Web Design Essentials Training certificate'
+  },
+  {
+    src: '/assets/certificate-4.webp',
+    alt: 'UX/UI design diploma approval certificate from UTN Buenos Aires'
+  },
+  {
+    src: '/assets/certificate-5.webp',
+    alt: 'User experience design and interaction design certificate from UTN Buenos Aires'
+  },
+  {
+    src: '/assets/certificate-6.webp',
+    alt: 'Social Communication degree certificate from the University of Buenos Aires'
+  }
 ];
 
 export const aboutSections = [
   {
     image: '/assets/about-barcelona.webp',
-    alt: 'Lucía standing in Barcelona',
+    alt: 'Lucía Alegria standing in Barcelona',
     html: {
       en: '<h2>About me</h2><p>I have a degree in Social Communication from the University of Buenos Aires, with a specialization in Communication Policies and Planning, and a UX/UI Design diploma from the National Technological University. I’ve been working in digital communication for over ten years, blending creativity, strategy, and user-centered design.</p><p>My experience spans media, publishing, and cultural projects. In recent years, I specialized in the tech field, working across communication, technical support, and infrastructure tasks.</p><p>I’m passionate about technology, design, and collaborative processes, and I believe in the power of clear, strategic, and purpose-driven communication.</p><p>Born and raised in Buenos Aires, Argentina, currently living in Barcelona.</p>',
       es: '<h2>Sobre mí</h2><p>Soy Licenciada en Ciencias de la Comunicación Social por la Universidad de Buenos Aires, con orientación en Políticas y Planificación de la Comunicación, y Diseñadora UX/UI por la Universidad Tecnológica Nacional. Hace más de diez años me dedico a la comunicación digital, combinando creatividad, estrategia y diseño centrado en las personas.</p><p>Trabajé en medios, editoriales y proyectos culturales, y en los últimos años me especialicé en el ámbito tecnológico, donde desarrollé tanto tareas de comunicación como de soporte técnico e infraestructura.</p><p>Me apasionan la tecnología, el diseño y los procesos colaborativos, y creo en el poder de una comunicación clara, estratégica y con propósito.</p><p>Nacida y criada en Buenos Aires, Argentina, actualmente viviendo en Barcelona.</p>'
@@ -1244,7 +1278,7 @@ export const aboutSections = [
   },
   {
     image: '/assets/about-football.webp',
-    alt: 'Football match with friends',
+    alt: 'Football match with friends on an outdoor pitch',
     caption: {
       en: 'Every Friday I play football with friends.',
       es: 'Todos los viernes juego partidos de fútbol con amigas.'

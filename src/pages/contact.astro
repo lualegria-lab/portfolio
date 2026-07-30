@@ -2,9 +2,15 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Localized from '../components/Localized.astro';
 import { profile, ui } from '../data/portfolio';
+
+const formspreeEndpoint = import.meta.env.PUBLIC_FORMSPREE_ENDPOINT;
+const hasFormspreeEndpoint = Boolean(formspreeEndpoint);
+const formAction = hasFormspreeEndpoint ? formspreeEndpoint : `mailto:${profile.email}`;
+const description =
+  'Contact Lucía Alegria for UX/UI design, product ideas and digital communication projects.';
 ---
 
-<BaseLayout active="contact" title="Lucía Alegria - Contact">
+<BaseLayout active="contact" title="Lucía Alegria - Contact" description={description} image="/assets/fotolu-form.webp">
   <section class="contact-shell">
     <div class="contact-copy prose">
       <p class="meta"><Localized value={ui.contactEyebrow} /></p>
@@ -13,20 +19,33 @@ import { profile, ui } from '../data/portfolio';
       <a class="button" href={`mailto:${profile.email}`}>{profile.email}</a>
     </div>
     <figure>
-      <img src="/assets/contact-photo.jpg" alt="Lucía Alegria" />
+      <img src="/assets/fotolu-form.webp" alt="Portrait of Lucía Alegria on the contact page" />
     </figure>
-    <form class="contact-form" action={`mailto:${profile.email}`} method="post" enctype="text/plain">
+    <form
+      class="contact-form"
+      action={formAction}
+      method={hasFormspreeEndpoint ? 'POST' : 'post'}
+      enctype={hasFormspreeEndpoint ? undefined : 'text/plain'}
+    >
+      {
+        hasFormspreeEndpoint && (
+          <>
+            <input type="hidden" name="subject" value="Nuevo mensaje desde el portfolio de {{ name }}" />
+            <input class="contact-honeypot" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" />
+          </>
+        )
+      }
       <label>
         <Localized value={ui.labels.email} />
-        <input name="email" type="email" autocomplete="email" />
+        <input name="email" type="email" autocomplete="email" required />
       </label>
       <label>
         <Localized value={ui.labels.name} />
-        <input name="name" type="text" autocomplete="name" />
+        <input name="name" type="text" autocomplete="name" required />
       </label>
       <label>
         <Localized value={ui.labels.message} />
-        <textarea name="message" rows="6"></textarea>
+        <textarea name="message" rows="6" required></textarea>
       </label>
       <button type="submit"><Localized value={ui.labels.send} /></button>
     </form>

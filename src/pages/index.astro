@@ -3,16 +3,54 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import ProjectCard from '../components/ProjectCard.astro';
 import Localized from '../components/Localized.astro';
 import { profile, projects, ui } from '../data/portfolio';
+
+const description =
+  'Lucía Alegria is a communications specialist and UX designer based in Barcelona, focused on clear digital products and user-centered experiences.';
 ---
 
-<BaseLayout active="home">
+<BaseLayout active="home" description={description} image={profile.heroImage}>
   <section class="hero">
     <div class="hero-media">
-      <img src={profile.heroImage} alt="Lucía Alegria portrait" />
+      <img src={profile.heroImage} alt="Portrait of Lucía Alegria, communications specialist and UX designer" />
     </div>
     <div class="hero-copy">
-      <p><Localized value={profile.introEyebrow} /></p>
-      <h1><Localized value={profile.intro} /></h1>
+      <p class="hero-eyebrow"><Localized value={profile.introEyebrow} /></p>
+      <h1>
+        <span data-lang="en">
+          {profile.introHeading.en.map((line, index) => (
+            <>
+              {line}
+              {index < profile.introHeading.en.length - 1 && <br />}
+            </>
+          ))}
+        </span>
+        <span data-lang="es">
+          {profile.introHeading.es.map((line, index) => (
+            <>
+              {line}
+              {index < profile.introHeading.es.length - 1 && <br />}
+            </>
+          ))}
+        </span>
+      </h1>
+      <p class="hero-subtitle">
+        <span data-lang="en">
+          {profile.introBody.en.map((line, index) => (
+            <>
+              {line}
+              {index < profile.introBody.en.length - 1 && <br />}
+            </>
+          ))}
+        </span>
+        <span data-lang="es">
+          {profile.introBody.es.map((line, index) => (
+            <>
+              {line}
+              {index < profile.introBody.es.length - 1 && <br />}
+            </>
+          ))}
+        </span>
+      </p>
     </div>
   </section>
 

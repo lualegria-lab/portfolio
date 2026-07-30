@@ -13,9 +13,15 @@ export function getStaticPaths() {
 
 const { project } = Astro.props;
 const projectHeroAlt = project.heroAlt ?? getText(project.title);
+const projectImage = project.heroImage ?? project.thumbnail[0];
 ---
 
-<BaseLayout title={`Lucía Alegria - ${getText(project.title)}`}>
+<BaseLayout
+  title={`Lucía Alegria - ${getText(project.title)}`}
+  description={getText(project.summary)}
+  image={projectImage}
+  type="article"
+>
   <article class:list={['project-page', `project-${project.slug}`]}>
     <header class="project-hero">
       <div class="project-hero-copy">
